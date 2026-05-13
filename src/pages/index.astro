@@ -171,6 +171,27 @@ const faqItems = [
   },
 ];
 
+const testimonials = [
+  {
+    quote: "Velora turned our scattered ideas into a premium website in just two weeks. The new design feels lightyears ahead of what we had, and the launch was completely seamless.",
+    name: "Alex Jensen",
+    role: "Founder, Synthesia",
+    avatar: "/assets/work-avatar-scott.png",
+  },
+  {
+    quote: "Finally, an agency that actually builds what they design, and does it fast. We saw an immediate increase in trust from our enterprise clients after the redesign.",
+    name: "Sarah Lin",
+    role: "CMO, Cognite",
+    avatar: "/assets/work-avatar-rachel.png",
+  },
+  {
+    quote: "The visual direction is sharp and the site loads incredibly fast. Velora's sprint process is exactly what modern startups need instead of dragging out projects for months.",
+    name: "David Chen",
+    role: "CEO, Aidn",
+    avatar: "/assets/work-avatar-nicola.png",
+  }
+];
+
 const footerGroups = [
   { title: "Studio", links: [{ label: "Services", href: "#features" }, { label: "Process", href: "#how-it-works" }, { label: "Pricing", href: "#pricing" }, { label: "FAQ", href: "#faq" }] },
   { title: "Projects", links: [{ label: "Landing Pages", href: "#pricing" }, { label: "Business Websites", href: "#pricing" }, { label: "Website Redesign", href: "#features" }, { label: "Custom Projects", href: "#pricing" }] },
@@ -525,13 +546,43 @@ const footerGroups = [
                 <div class="grid border-b border-[#333] last:border-b-0 md:grid-cols-[0.45fr_1fr_1fr]">
                   <div class="bg-[#181818] p-5 text-[14px] uppercase tracking-[1.5px] text-[#8f8f8f]">{row.label}</div>
                   <div class="flex gap-3 p-5 text-[17px] leading-7 text-[#f7f7f7]">
-                    <iconify-icon icon="lucide:check" class="mt-1 size-5 shrink-0 text-[var(--current-lime)]"></iconify-icon>
+                     <iconify-icon icon="lucide:check" class="mt-1 size-5 shrink-0 text-[var(--current-lime)]"></iconify-icon>
                     <span>{row.velora}</span>
                   </div>
                   <div class="border-t border-[#333] p-5 text-[17px] leading-7 text-[#8f8f8f] md:border-l md:border-t-0">{row.typical}</div>
                 </div>
               ))}
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="testimonials" class="relative overflow-hidden bg-[#121212] px-6 py-[40px] pb-[130px] text-white">
+        <div class="pointer-events-none absolute right-0 top-0 size-[400px] rounded-full bg-[var(--current-lime)] opacity-[0.05] blur-3xl"></div>
+        <div class="mx-auto max-w-[1132px]">
+          <div data-reveal class="mx-auto max-w-[720px] text-center">
+            <p class="text-[15px] uppercase leading-[20.3px] tracking-[2px] text-[var(--current-lime)]">Testimonials</p>
+            <h2 class="mt-4 text-[clamp(42px,5.2vw,56px)] font-normal leading-[1.064] tracking-[-0.02em] text-[#f7f7f7]">
+              Trusted by brands that<br />demand quality
+            </h2>
+          </div>
+          
+          <div class="mt-14 grid gap-5 md:grid-cols-3">
+            {testimonials.map((testimonial) => (
+              <article data-reveal data-card-motion class="relative flex flex-col justify-between overflow-hidden rounded-lg border border-[#333] bg-[#1e1e1e] p-8">
+                <iconify-icon icon="lucide:quote" class="absolute right-6 top-6 text-5xl text-[#333] opacity-30"></iconify-icon>
+                <p class="relative z-10 text-[17px] leading-[28px] text-[#dfdfdf]">
+                  "{testimonial.quote}"
+                </p>
+                <div class="mt-8 flex items-center gap-4">
+                  <img src={testimonial.avatar} alt={testimonial.name} class="size-11 rounded-full object-cover" />
+                  <div>
+                    <p class="text-[15.5px] font-medium leading-none text-[#f7f7f7]">{testimonial.name}</p>
+                    <p class="mt-1.5 text-[14px] leading-none text-[#8f8f8f]">{testimonial.role}</p>
+                  </div>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
