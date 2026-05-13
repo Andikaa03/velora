@@ -47,6 +47,24 @@ a {
   transform: translateY(0);
 }
 
+.motion-ready [data-primary-slide][data-reveal-ready]:not(.is-visible) {
+  color: var(--current-primary) !important;
+  opacity: 0;
+  transform: translateX(-32px);
+}
+
+[data-primary-slide] {
+  transition:
+    color 900ms cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 1000ms cubic-bezier(0.16, 1, 0.3, 1),
+    transform 1000ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+[data-primary-slide].is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
 [data-card-motion] {
   transform: translateY(0) scale(1);
   transition:
