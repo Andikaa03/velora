@@ -602,6 +602,12 @@ const footerGroups = [
     </main>
     <script>
       import "iconify-icon";
+      import Lenis from "lenis";
+      import "lenis/dist/lenis.css";
+
+      const lenis = new Lenis({
+        autoRaf: true,
+      });
 
       const revealItems = document.querySelectorAll("[data-reveal]");
       const observer = new IntersectionObserver(
