@@ -1,0 +1,126 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+
+const stats = [
+  ["2 minggu", "Sprint launch fokus"],
+  ["4 jalur", "Custom code, WordPress, Framer, Webflow"],
+  ["Promo", "Harga opening untuk project awal"],
+];
+
+const values = [
+  {
+    title: "Jelas sebelum dekoratif",
+    copy: "Setiap section punya alasan: menjelaskan offer, membangun trust, menunjukkan bukti, atau membawa visitor ke action.",
+    icon: "lucide:scan-line",
+  },
+  {
+    title: "Premium tanpa berisik",
+    copy: "Visual tajam, motion bersih, dan spacing percaya diri tanpa membuat website terasa terlalu ramai.",
+    icon: "lucide:sparkles",
+  },
+  {
+    title: "Siap untuk tahap berikutnya",
+    copy: "Fondasi website bisa berkembang ke blog, ecommerce, SaaS, fitur custom, dan SEO yang lebih kuat.",
+    icon: "lucide:blocks",
+  },
+];
+
+const process = [
+  ["01", "Direction", "Kami rapikan offer, audience, struktur website, CTA flow, platform, dan prioritas launch."],
+  ["02", "Design", "Kami bentuk visual system, hero direction, section, trust signal, responsive layout, dan hierarki konten."],
+  ["03", "Build", "Website dikembangkan dengan struktur responsive, animasi, basic SEO, performa, dan launch readiness."],
+  ["04", "Launch", "Kami bantu setup domain, hosting, final QA, analytics basic, dan handover agar website siap live."],
+];
+
+const serviceFit = [
+  "Landing page premium untuk campaign, offer, produk, dan bisnis jasa.",
+  "Website bisnis dengan about, services, blog, contact, dan trust flow yang lebih kuat.",
+  "Redesign website untuk brand yang tampilannya sudah terasa lama atau kurang jelas.",
+  "Fondasi custom project untuk ecommerce, SaaS, CMS, dan produk digital berikutnya.",
+];
+---
+
+<SiteLayout
+  title="Tentang Velora Studio | Jasa Website Premium Indonesia"
+  description="Velora Studio adalah studio jasa website premium untuk landing page, website bisnis, redesign, WordPress, Framer, Webflow, custom code, ecommerce, dan SaaS."
+  lang="id"
+  canonicalPath="/about/"
+>
+  <section class="px-6 pb-20 pt-16 lg:pb-28 lg:pt-24">
+    <div class="mx-auto grid max-w-[1329px] gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
+      <div data-reveal>
+        <p class="text-[14px] uppercase leading-5 tracking-[2px] text-[var(--current-primary)]">Tentang Velora</p>
+        <h1 data-reveal data-primary-slide class="mt-5 max-w-[760px] text-[clamp(54px,7vw,104px)] font-normal leading-[0.96] tracking-[-0.04em] text-[#242424]">
+          Presence digital premium, dibangun dengan fokus.
+        </h1>
+      </div>
+      <div data-reveal class="max-w-[660px] lg:ml-auto">
+        <p class="text-[clamp(20px,2.2vw,28px)] leading-[1.35] tracking-[-0.02em] text-[#242424]">
+          Velora Studio membantu brand mengubah ide yang masih berantakan
+          menjadi website yang jelas, dipercaya, dan siap menjual. Kami
+          menggabungkan strategi website, desain premium, development
+          responsive, basic SEO, dan launch support dalam satu flow.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="/#pricing" class="rounded-full bg-[#242424] px-6 py-3 text-[16px] text-white transition hover:bg-black">Lihat paket</a>
+          <a href="/contact" class="rounded-full border border-[#9fb148] px-6 py-3 text-[16px] text-[#242424] transition hover:bg-[#d7ef69]">Mulai diskusi</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[#121212] px-6 py-20 text-white lg:py-28">
+    <div class="mx-auto grid max-w-[1329px] gap-5 md:grid-cols-3">
+      {stats.map(([value, label]) => <article data-reveal class="rounded-lg border border-[#333] p-7"><p class="text-[clamp(42px,5vw,64px)] leading-none tracking-[-0.04em] text-[var(--current-lime)]">{value}</p><p class="mt-5 text-[18px] leading-7 text-[#b8b8b8]">{label}</p></article>)}
+    </div>
+  </section>
+
+  <section class="bg-white px-6 py-20 lg:py-28">
+    <div class="mx-auto max-w-[1329px]">
+      <div data-reveal class="grid gap-8 lg:grid-cols-[0.8fr_1fr] lg:items-end">
+        <div>
+          <p class="text-[14px] uppercase tracking-[2px] text-[var(--current-primary)]">Posisi studio</p>
+          <h2 class="mt-4 text-[clamp(42px,5vw,72px)] font-normal leading-[1] tracking-[-0.04em] text-[#242424]">
+            Dibuat untuk brand yang perlu terlihat lebih dipercaya sekarang.
+          </h2>
+        </div>
+        <p class="max-w-[620px] text-[19px] leading-8 text-[#565656] lg:ml-auto">
+          Tujuannya bukan sekadar halaman yang cantik. Tujuannya adalah website
+          yang membuat bisnis lebih mudah dipahami, lebih dipercaya, dan lebih
+          mudah dihubungi.
+        </p>
+      </div>
+      <div class="mt-14 grid gap-5 lg:grid-cols-3">
+        {values.map((item) => <article data-reveal data-card-motion class="rounded-lg border border-[#dedede] bg-[#f7f7f7] p-7"><span class="grid size-[58px] place-items-center rounded-full bg-[var(--current-lime)]"><iconify-icon icon={item.icon} class="text-[32px] text-[#242424]" /></span><h3 class="mt-16 text-[28px] leading-8 tracking-[-0.02em] text-[#242424]">{item.title}</h3><p class="mt-4 text-[17px] leading-7 text-[#686868]">{item.copy}</p></article>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="px-6 py-20 lg:py-28">
+    <div class="mx-auto max-w-[1329px]">
+      <div data-reveal class="max-w-[760px]">
+        <p class="text-[14px] uppercase tracking-[2px] text-[var(--current-primary)]">Cara kerja</p>
+        <h2 class="mt-4 text-[clamp(42px,5vw,72px)] font-normal leading-[1] tracking-[-0.04em] text-[#242424]">
+          Direction, design, build, dan launch dalam satu flow.
+        </h2>
+      </div>
+      <div class="mt-14 grid overflow-hidden rounded-lg border border-[#c6df5d] bg-[#121212] lg:grid-cols-4">
+        {process.map(([number, title, copy]) => <article data-reveal class="min-h-[300px] border-b border-r border-[#333] p-7 text-white lg:border-b-0"><p class="text-[18px] text-[#686868]">{number}</p><h3 class="mt-20 text-[32px] leading-9 tracking-[-0.03em]">{title}</h3><p class="mt-4 text-[17px] leading-7 text-[#a9a9a9]">{copy}</p></article>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white px-6 py-20 lg:py-28">
+    <div data-reveal class="mx-auto grid max-w-[1329px] overflow-hidden rounded-lg border border-[#dedede] lg:grid-cols-[0.85fr_1.15fr]">
+      <div class="bg-[var(--current-lime)] p-7 lg:p-10">
+        <p class="text-[14px] uppercase tracking-[2px] text-[var(--current-primary)]">Paling cocok untuk</p>
+        <h2 class="mt-5 text-[clamp(42px,5vw,72px)] font-normal leading-[1] tracking-[-0.04em] text-[#242424]">
+          Brand yang ingin polish agency-level tanpa proses yang berat.
+        </h2>
+      </div>
+      <div class="divide-y divide-[#dedede] bg-white">
+        {serviceFit.map((item) => <div class="flex items-start gap-4 p-6 lg:p-8"><iconify-icon icon="lucide:check" class="mt-1 text-[28px] text-[var(--current-primary)]" /><p class="text-[20px] leading-8 tracking-[-0.02em] text-[#242424]">{item}</p></div>)}
+      </div>
+    </div>
+  </section>
+</SiteLayout>

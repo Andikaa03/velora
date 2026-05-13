@@ -1,0 +1,195 @@
+---
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import { blogPosts } from "../../data/blogPosts";
+
+const featuredPost = blogPosts[0];
+const secondaryPosts = blogPosts.slice(1);
+const categories = ["Desain", "Strategi", "Platform", "Redesign", "Growth", "SEO"];
+---
+
+<SiteLayout
+  title="Blog | Velora Studio"
+  description="Artikel tentang jasa website premium, landing page, redesign, WordPress, Framer, Webflow, ecommerce, SaaS, dan SEO untuk bisnis Indonesia."
+  lang="id"
+  canonicalPath="/blog/"
+>
+  <section class="px-6 pb-20 pt-16 lg:pb-28 lg:pt-24">
+    <div class="mx-auto max-w-[1329px]">
+      <div
+        data-reveal
+        class="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-end"
+      >
+        <div>
+          <p
+            class="text-[14px] uppercase leading-5 tracking-[2px] text-[var(--current-primary)]"
+          >
+            Jurnal Velora
+          </p>
+          <h1
+            data-reveal
+            data-primary-slide
+            class="mt-5 text-[clamp(54px,7vw,104px)] font-normal leading-[0.96] tracking-[-0.04em] text-[#242424]"
+          >
+            Website lebih baik, growth lebih jelas.
+          </h1>
+        </div>
+        <p
+          class="max-w-[660px] text-[clamp(20px,2.2vw,28px)] leading-[1.35] tracking-[-0.02em] text-[#242424] lg:ml-auto"
+        >
+          Tulisan praktis untuk founder dan brand yang ingin website lebih
+          premium, SEO lebih kuat, landing page lebih tajam, dan presence
+          digital yang lebih dipercaya.
+        </p>
+      </div>
+
+      <div class="mt-12 flex flex-wrap gap-3">
+        {
+          categories.map((category) => (
+            <span
+              data-reveal
+              class="rounded-full border border-[#c6df5d] bg-[#efffa0] px-4 py-2 text-[15px] text-[#242424]"
+            >
+              {category}
+            </span>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[#121212] px-6 py-20 text-white lg:py-28">
+    <div class="mx-auto max-w-[1329px]">
+      <a
+        href={`/blog/${featuredPost.slug}`}
+        data-reveal
+        data-card-motion
+        class="grid overflow-hidden rounded-lg border border-[#333] bg-[#1b1b1b] lg:grid-cols-[1.05fr_0.95fr]"
+      >
+        <div class="min-h-[420px] overflow-hidden">
+          <img
+            src={featuredPost.image}
+            alt=""
+            class="motion-image h-full min-h-[420px] w-full object-cover transition duration-700"
+          />
+        </div>
+        <div class="flex min-h-[420px] flex-col justify-between p-7 lg:p-10">
+          <div>
+            <div
+              class="flex flex-wrap items-center gap-3 text-[13px] uppercase tracking-[1.8px] text-[var(--current-lime)]"
+            >
+              <span>Pilihan utama</span>
+              <span>{featuredPost.category}</span>
+              <span>{featuredPost.readTime}</span>
+            </div>
+            <h2
+              class="mt-10 max-w-[620px] text-[clamp(42px,5vw,72px)] font-normal leading-[1] tracking-[-0.04em] text-white"
+            >
+              {featuredPost.title}
+            </h2>
+            <p class="mt-6 max-w-[620px] text-[19px] leading-8 text-[#b8b8b8]">
+              {featuredPost.excerpt}
+            </p>
+          </div>
+          <span
+            class="mt-10 inline-flex w-fit items-center gap-3 rounded-full bg-[var(--current-lime)] px-6 py-3 text-[17px] text-[#242424]"
+          >
+            Baca artikel
+            <iconify-icon icon="lucide:arrow-up-right" class="text-[22px]" />
+          </span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section class="bg-white px-6 py-20 lg:py-28">
+    <div class="mx-auto max-w-[1329px]">
+      <div data-reveal class="flex flex-col justify-between gap-5 md:flex-row md:items-end">
+        <div>
+          <p class="text-[14px] uppercase tracking-[2px] text-[var(--current-primary)]">
+            Artikel terbaru
+          </p>
+          <h2
+            class="mt-4 text-[clamp(42px,5vw,72px)] font-normal leading-[1] tracking-[-0.04em] text-[#242424]"
+          >
+            Catatan website yang layak disimpan.
+          </h2>
+        </div>
+        <p class="max-w-[500px] text-[17px] leading-7 text-[#686868]">
+          Content dibuat untuk bantu SEO jangka panjang: topik jasa website,
+          redesign, landing page, platform, ecommerce, SaaS, dan digital trust.
+        </p>
+      </div>
+
+      <div class="mt-14 grid gap-5 lg:grid-cols-3">
+        {
+          secondaryPosts.map((post) => (
+            <a
+              href={`/blog/${post.slug}`}
+              data-reveal
+              data-card-motion
+              class="group overflow-hidden rounded-lg border border-[#dedede] bg-[#f7f7f7]"
+            >
+              <div class="h-[248px] overflow-hidden bg-[#e9e9e9]">
+                <img
+                  src={post.image}
+                  alt=""
+                  class="motion-image h-full w-full object-cover transition duration-700"
+                />
+              </div>
+              <div class="p-6">
+                <div class="flex items-center justify-between text-[13px] uppercase tracking-[1.8px] text-[var(--current-primary)]">
+                  <span>{post.category}</span>
+                  <span>{post.readTime}</span>
+                </div>
+                <h3 class="mt-8 text-[30px] leading-9 tracking-[-0.03em] text-[#242424]">
+                  {post.title}
+                </h3>
+                <p class="mt-4 text-[17px] leading-7 text-[#686868]">
+                  {post.excerpt}
+                </p>
+                <span class="mt-8 inline-flex items-center gap-2 text-[17px] text-[#242424]">
+                  Baca selengkapnya
+                  <iconify-icon
+                    icon="lucide:arrow-up-right"
+                    class="text-[20px] transition group-hover:translate-x-1 group-hover:-translate-y-1"
+                  />
+                </span>
+              </div>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="px-6 py-20 lg:py-28">
+    <div
+      data-reveal
+      class="mx-auto grid max-w-[1329px] overflow-hidden rounded-lg border border-[#c6df5d] bg-[#121212] text-white lg:grid-cols-[0.9fr_1.1fr]"
+    >
+      <div class="p-7 lg:p-10">
+        <p class="text-[14px] uppercase tracking-[2px] text-[var(--current-lime)]">
+          Arah SEO
+        </p>
+        <h2 class="mt-5 text-[clamp(42px,5vw,72px)] font-normal leading-[1] tracking-[-0.04em]">
+          Konten blog harus bantu sales, bukan cuma traffic.
+        </h2>
+      </div>
+      <div class="grid border-t border-[#333] lg:border-l lg:border-t-0">
+        {
+          [
+            "Menjawab pertanyaan calon buyer sebelum mereka menghubungi.",
+            "Membangun topical authority seputar website design dan development.",
+            "Membuat internal link ke layanan, harga, dan halaman konsultasi.",
+            "Membuat brand terasa aktif, kredibel, dan lebih mudah ditemukan.",
+          ].map((item) => (
+            <div class="flex items-center gap-4 border-b border-[#333] p-6 last:border-b-0">
+              <iconify-icon icon="lucide:check" class="text-[26px] text-[var(--current-lime)]" />
+              <p class="text-[19px] leading-7 text-[#d8d8d8]">{item}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</SiteLayout>

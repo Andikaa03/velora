@@ -1,23 +1,24 @@
 ---
 import "../styles/global.css";
 import ScrollMotionController from "../components/ScrollMotionController";
+import { baseServiceSchema, keywordClusters, siteUrl } from "../data/seo";
 
 const calendlyUrl = "https://calendly.com/yourname/consultation";
 const whatsappUrl = "https://wa.me/628xxxxxxxxxx";
 
 const navItems = [
-  { label: "Services", href: "#features" },
-  { label: "Process", href: "#how-it-works" },
-  { label: "Platforms", href: "#platforms" },
-  { label: "Pricing", href: "#pricing" },
-  { label: "FAQ", href: "#faq" },
+  { label: "Layanan", href: "#features" },
+  { label: "Harga", href: "#pricing" },
+  { label: "Tentang", href: "/about" },
+  { label: "Blog", href: "/blog" },
+  { label: "Kontak", href: "/contact" },
 ];
 
 const trustItems = [
-  "Premium visual direction",
-  "Responsive development",
-  "Domain & hosting setup",
-  "Launch support included",
+  "Desain premium dan rapi",
+  "Responsive di semua device",
+  "Setup domain & hosting",
+  "Support sampai launch",
 ];
 
 const companyLogos = [
@@ -50,99 +51,99 @@ const companyLogos = [
 
 const feedCards = [
   {
-    title: "Landing Page Direction",
-    copy: "Homepage flow, offer structure, and CTA hierarchy prepared for launch.",
+    title: "Arah Landing Page",
+    copy: "Alur homepage, struktur offer, dan CTA hierarchy disiapkan untuk launch.",
     image: "/assets/unsplash-workspace-monitor.jpg",
     avatar: "/assets/work-avatar-rachel.png",
     author: "Velora Studio",
     meta: "#landing-page",
-    reaction: "Strategy and design direction approved",
+    reaction: "Strategi dan arah desain disetujui",
     badgeIcon: "lucide:rocket",
   },
   {
-    title: "Business Website System",
-    copy: "Homepage, about, services, and contact pages shaped into one clear presence.",
+    title: "Sistem Website Bisnis",
+    copy: "Home, about, services, dan contact dibentuk menjadi presence yang jelas.",
     image: "/assets/unsplash-desk-monitor.jpg",
     avatar: "/assets/work-avatar-scott.png",
     author: "Project Lead",
     meta: "#business-site",
-    reaction: "Client-ready structure and launch checklist",
+    reaction: "Struktur dan launch checklist siap",
     badgeIcon: "lucide:building-2",
   },
   {
-    title: "Redesign Audit Notes",
-    copy: "Visual hierarchy, mobile experience, and trust signals refined for a sharper site.",
+    title: "Catatan Audit Redesign",
+    copy: "Hierarki visual, mobile experience, dan trust signal dirapikan.",
     image: "/assets/unsplash-hero-workspace.jpg",
     avatar: "/assets/work-avatar-nicola.png",
-    author: "Design Review",
+    author: "Review Desain",
     meta: "#redesign",
-    reaction: "Priority improvements mapped",
+    reaction: "Prioritas improvement dipetakan",
     badgeIcon: "lucide:refresh-cw",
   },
   {
-    title: "Custom Build Scope",
-    copy: "Ecommerce, SaaS, integrations, CMS, and custom-coded experience planning.",
+    title: "Scope Custom Build",
+    copy: "Perencanaan ecommerce, SaaS, integrasi, CMS, dan custom-coded experience.",
     image: "/assets/unsplash-code-plant.jpg",
     avatar: "/assets/work-avatar-scott.png",
     author: "Velora Studio",
     meta: "#custom-project",
-    reaction: "Discuss project scope",
+    reaction: "Diskusi scope project",
     badgeIcon: "lucide:sparkles",
   },
 ];
 
 const weeklyCards = [
   {
-    title: "Premium Landing Page",
-    copy: "Offer, page sections, CTA flow, responsive layout, and visual polish prepared for launch.",
+    title: "Landing Page Premium",
+    copy: "Offer, section, CTA flow, responsive layout, dan visual polish disiapkan.",
     image: "/assets/unsplash-dashboard-phone.jpg",
     avatar: "/assets/weekly-avatar-brent.png",
     author: "Velora Studio",
     meta: "#Landing Page",
-    reaction: "Launch checklist added",
+    reaction: "Launch checklist ditambahkan",
     icon: "lucide:rocket",
   },
   {
-    title: "Business Website Redesign",
-    copy: "Homepage and core pages refined into a clearer, more trusted brand presence.",
+    title: "Redesign Website Bisnis",
+    copy: "Homepage dan core pages dirapikan agar brand terasa lebih dipercaya.",
     image: "/assets/unsplash-code-hands.jpg",
     avatar: "/assets/weekly-avatar-lea.png",
-    author: "Project Review",
+    author: "Review Project",
     meta: "#Redesign",
-    reaction: "Visual direction approved",
+    reaction: "Arah visual disetujui",
     icon: "lucide:sparkles",
   },
 ];
 
 const featureItems = [
   {
-    title: "Landing Pages",
-    copy: "Focused pages for offers, products, services, campaigns, and personal brands.",
+    title: "Landing Page",
+    copy: "Halaman fokus untuk promosi produk, jasa, campaign, personal brand, dan penawaran utama.",
     icon: "lucide:mouse-pointer-click",
   },
   {
-    title: "Business Websites",
-    copy: "Multi-page websites with clear structure, polished visuals, and strong CTAs.",
+    title: "Website Bisnis",
+    copy: "Website multi-halaman dengan struktur jelas, visual premium, dan CTA yang kuat.",
     icon: "lucide:panel-top",
   },
   {
-    title: "Website Redesign",
-    copy: "Refresh your current website into a premium presence that fits your brand today.",
+    title: "Redesign Website",
+    copy: "Ubah website lama jadi lebih jelas, modern, terpercaya, dan siap dipakai promosi.",
     icon: "lucide:refresh-cw",
   },
   {
-    title: "Ecommerce Websites",
-    copy: "Product-focused web experiences for brands preparing to sell online.",
+    title: "Website Ecommerce",
+    copy: "Website produk dan toko online untuk brand yang mulai serius menjual secara digital.",
     icon: "lucide:shopping-bag",
   },
   {
-    title: "SaaS & Product Sites",
-    copy: "Marketing websites for apps, platforms, dashboards, and digital products.",
+    title: "Website SaaS & Produk",
+    copy: "Marketing website untuk aplikasi, platform, dashboard, dan produk digital.",
     icon: "lucide:blocks",
   },
   {
-    title: "CMS Websites",
-    copy: "Content-ready websites using WordPress, Webflow, Framer, or custom code.",
+    title: "Website CMS",
+    copy: "Website yang mudah di-update memakai WordPress, Webflow, Framer, atau custom code.",
     icon: "lucide:layout-template",
   },
 ];
@@ -150,22 +151,22 @@ const featureItems = [
 const platforms = [
   {
     title: "Custom Code",
-    copy: "Fast, flexible, and tailored for a polished experience.",
+    copy: "Cepat, fleksibel, dan paling bebas untuk experience yang premium.",
     icon: "lucide:code-2",
   },
   {
     title: "WordPress",
-    copy: "Ideal for blogs, content-heavy websites, and easy updates.",
+    copy: "Cocok untuk blog, company profile, dan website yang sering di-update.",
     icon: "simple-icons:wordpress",
   },
   {
     title: "Framer",
-    copy: "Great for modern landing pages with smooth visual polish.",
+    copy: "Bagus untuk landing page modern dengan visual dan motion yang halus.",
     icon: "simple-icons:framer",
   },
   {
     title: "Webflow",
-    copy: "Perfect for visual websites with structured CMS needs.",
+    copy: "Ideal untuk website visual dengan CMS yang rapi dan terstruktur.",
     icon: "simple-icons:webflow",
   },
 ];
@@ -175,65 +176,65 @@ const pricingPlans = [
     name: "Landing Page",
     price: "Rp 1.000.000",
     description:
-      "For one focused, premium page built to present one offer clearly.",
-    cta: "Start Project",
+      "Untuk satu halaman premium yang fokus menjual satu penawaran dengan jelas.",
+    cta: "Mulai Project",
     href: whatsappUrl,
     features: [
-      "1 premium landing page",
+      "1 landing page premium",
       "Responsive development",
       "Basic animation",
-      "Copy structure support",
-      "Domain & hosting setup",
-      "Launch support",
+      "Bantuan struktur copy",
+      "Setup domain & hosting",
+      "Support sampai launch",
     ],
   },
   {
-    name: "Business Website",
+    name: "Website Bisnis",
     price: "Rp 2.500.000",
     description:
-      "For brands that need a stronger and more complete online presence.",
-    cta: "Start Project",
+      "Untuk brand yang butuh presence online lebih lengkap dan terpercaya.",
+    cta: "Mulai Project",
     href: whatsappUrl,
     featured: true,
     features: [
-      "Multi-page website",
+      "Website multi-halaman",
       "Home, about, services, contact",
       "Premium visual direction",
       "Basic SEO setup",
-      "Domain & hosting setup",
-      "Launch support",
+      "Setup domain & hosting",
+      "Support sampai launch",
     ],
   },
   {
     name: "Growth Website",
     price: "Rp 4.500.000",
     description:
-      "For brands preparing for a more scalable premium digital presence.",
-    cta: "Start Project",
+      "Untuk brand yang ingin fondasi digital lebih scalable dan siap berkembang.",
+    cta: "Mulai Project",
     href: whatsappUrl,
     features: [
-      "Premium multi-page website",
-      "CMS/blog-ready structure",
-      "Refined visual system",
+      "Website premium multi-halaman",
+      "Struktur CMS/blog-ready",
+      "Visual system lebih matang",
       "Smooth animation",
-      "Domain & hosting setup",
-      "Launch support",
+      "Setup domain & hosting",
+      "Support sampai launch",
     ],
   },
   {
     name: "Custom Project",
-    price: "Contact Us",
+    price: "Hubungi Kami",
     description:
-      "For ecommerce, SaaS, integrations, custom features, or larger scopes.",
-    cta: "Discuss Project",
+      "Untuk ecommerce, SaaS, integrasi, fitur custom, atau scope yang lebih besar.",
+    cta: "Diskusi Project",
     href: calendlyUrl,
     features: [
-      "Tailored project scope",
-      "Ecommerce or SaaS website",
+      "Scope project disesuaikan",
+      "Website ecommerce atau SaaS",
       "Custom-coded experience",
-      "CMS and integrations",
+      "CMS dan integrasi",
       "Advanced animation",
-      "Scalable foundation",
+      "Fondasi yang scalable",
     ],
   },
 ];
@@ -241,51 +242,51 @@ const pricingPlans = [
 const comparisonRows = [
   {
     label: "Timeline",
-    velora: "Focused sprint with launch support",
-    typical: "Longer timeline and heavier meetings",
+    velora: "Sprint fokus dengan support sampai launch",
+    typical: "Timeline lebih panjang dan meeting lebih berat",
   },
   {
     label: "Process",
-    velora: "Direction, design, build, and launch in one flow",
-    typical: "More handoffs between strategy, design, and development",
+    velora: "Direction, design, build, dan launch dalam satu flow",
+    typical: "Lebih banyak handoff antara strategy, design, dan development",
   },
   {
     label: "Budget",
-    velora: "Opening pricing for selected early projects",
-    typical: "Higher starting budget before production begins",
+    velora: "Harga opening untuk project awal terpilih",
+    typical: "Budget awal lebih tinggi sebelum produksi dimulai",
   },
   {
     label: "Scope",
-    velora: "Landing pages, redesigns, business websites, ecommerce, and SaaS",
-    typical: "Often packaged around fixed agency retainers",
+    velora: "Landing page, redesign, website bisnis, ecommerce, dan SaaS",
+    typical: "Sering dikemas dalam retainer agency yang kaku",
   },
 ];
 
 const faqItems = [
   {
-    question: "Can you redesign an existing website?",
+    question: "Bisa redesign website yang sudah ada?",
     answer:
-      "Yes. We can redesign your current website into a clearer, sharper, and more premium online presence.",
+      "Bisa. Website lama bisa dirapikan ulang agar lebih jelas, tajam, premium, dan lebih dipercaya calon customer.",
   },
   {
-    question: "Is domain and hosting included?",
+    question: "Apakah domain dan hosting termasuk?",
     answer:
-      "Domain and hosting setup support is included, so your website can be prepared and launched smoothly.",
+      "Support setup domain dan hosting termasuk, jadi website bisa disiapkan sampai siap launch.",
   },
   {
-    question: "Can you build ecommerce or SaaS websites?",
+    question: "Bisa buat website ecommerce atau SaaS?",
     answer:
-      "Yes. Ecommerce, SaaS, product websites, custom features, and integrations are handled through Custom Project scope.",
+      "Bisa. Ecommerce, SaaS, website produk, fitur custom, dan integrasi masuk ke scope Custom Project.",
   },
   {
-    question: "Which platform should I choose?",
+    question: "Platform mana yang paling cocok?",
     answer:
-      "We can recommend the best setup after understanding your goals. Custom code, WordPress, Framer, and Webflow are available.",
+      "Kami rekomendasikan setup terbaik setelah memahami goal, konten, timeline, dan rencana growth. Custom code, WordPress, Framer, dan Webflow tersedia.",
   },
   {
-    question: "Is this promo pricing permanent?",
+    question: "Apakah harga promo ini permanen?",
     answer:
-      "No. These are opening prices for selected early projects while project slots are still limited.",
+      "Tidak. Ini harga opening untuk project awal terpilih selama slot studio masih terbatas.",
   },
 ];
 
@@ -293,42 +294,92 @@ const footerGroups = [
   {
     title: "Studio",
     links: [
-      { label: "Services", href: "#features" },
-      { label: "Process", href: "#how-it-works" },
-      { label: "Pricing", href: "#pricing" },
-      { label: "FAQ", href: "#faq" },
+      { label: "Layanan", href: "#features" },
+      { label: "Proses", href: "#how-it-works" },
+      { label: "Tentang", href: "/about" },
+      { label: "Blog", href: "/blog" },
     ],
   },
   {
-    title: "Projects",
+    title: "Project",
     links: [
-      { label: "Landing Pages", href: "#pricing" },
-      { label: "Business Websites", href: "#pricing" },
-      { label: "Website Redesign", href: "#features" },
-      { label: "Custom Projects", href: "#pricing" },
+      { label: "Landing Page", href: "#pricing" },
+      { label: "Website Bisnis", href: "#pricing" },
+      { label: "Redesign Website", href: "#features" },
+      { label: "Custom Project", href: "#pricing" },
     ],
   },
   {
-    title: "Contact",
+    title: "Kontak",
     links: [
-      { label: "Book a Consultation", href: calendlyUrl },
-      { label: "Chat on WhatsApp", href: whatsappUrl },
+      { label: "Konsultasi Gratis", href: calendlyUrl },
+      { label: "Chat WhatsApp", href: whatsappUrl },
+      { label: "Kebijakan Privasi", href: "/privacy-policy" },
+      { label: "Ketentuan", href: "/terms" },
     ],
+  },
+];
+
+const homeSchema = [
+  {
+    ...baseServiceSchema,
+    "@type": "ProfessionalService",
+    name: "Velora Studio - Jasa Pembuatan Website Profesional",
+    url: siteUrl,
+    description:
+      "Jasa pembuatan website profesional untuk landing page, company profile, redesign website, WordPress, Framer, Webflow, ecommerce, SaaS, dan custom website.",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqItems.map((item) => ({
+      "@type": "Question",
+      name: item.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.answer,
+      },
+    })),
   },
 ];
 ---
 
-<html lang="en">
+<html lang="id">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Velora Studio builds premium websites for brands ready to grow."
+      content="Velora Studio adalah jasa pembuatan website profesional untuk landing page, company profile, redesign website, WordPress, Framer, Webflow, ecommerce, dan SaaS."
     />
+    <meta
+      name="keywords"
+      content={[...keywordClusters.primary, ...keywordClusters.services].join(", ")}
+    />
+    <link rel="canonical" href={siteUrl} />
+    <link rel="alternate" hreflang="id" href={`${siteUrl}/id/`} />
+    <link rel="alternate" hreflang="en" href={`${siteUrl}/en/`} />
+    <link rel="alternate" hreflang="x-default" href={`${siteUrl}/id/`} />
+    <meta
+      property="og:title"
+      content="Jasa Pembuatan Website Profesional | Velora Studio"
+    />
+    <meta
+      property="og:description"
+      content="Website premium, cepat, mobile-friendly, dan SEO-ready untuk bisnis yang ingin terlihat lebih dipercaya."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:image" content={`${siteUrl}/assets/unsplash-desk-monitor.jpg`} />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="shortcut icon" href="/favicon.svg" />
-    <title>Velora Studio | Premium Websites for Growing Brands</title>
+    <title>Jasa Pembuatan Website Profesional | Velora Studio</title>
+    {
+      homeSchema.map((item) => (
+        <script type="application/ld+json" set:html={JSON.stringify(item)} />
+      ))
+    }
   </head>
   <body class="bg-[var(--current-lime)]">
     <main
@@ -356,7 +407,7 @@ const footerGroups = [
               navItems.map((item) => (
                 <a
                   href={item.href}
-                  class="flex h-[43px] items-center rounded-full px-3 text-[17px] leading-[23px] text-[#242424] transition hover:bg-[#d7ef69]"
+                  class="flex h-[43px] items-center rounded-full px-2 text-[16px] leading-[23px] text-[#242424] transition hover:bg-[#d7ef69] xl:px-3 xl:text-[17px]"
                 >
                   {item.label}
                 </a>
@@ -366,30 +417,110 @@ const footerGroups = [
               class="mx-2 h-4 w-px bg-[var(--current-lime-line)]"
               aria-hidden="true"></span>
             <a
-              href={whatsappUrl}
-              class="flex h-[43px] items-center rounded-full px-3 text-[17px] leading-[23px] text-[#242424] transition hover:bg-[#d7ef69]"
-              >WhatsApp</a
-            >
-            <a
               href={calendlyUrl}
               class="flex h-[43px] items-center rounded-full bg-[#242424] px-6 text-[17px] leading-[23px] text-[#f0f0f0] transition hover:bg-black"
-              >Book a call</a
+              >Konsultasi</a
             >
+            <div class="ml-2 flex rounded-full border border-[#c6df5d] p-1">
+              <a
+                href="/id"
+                class="rounded-full px-3 py-1 text-[14px] text-[#242424] transition hover:bg-[#d7ef69]"
+                hreflang="id">ID</a
+              >
+              <a
+                href="/en"
+                class="rounded-full px-3 py-1 text-[14px] text-[#242424] transition hover:bg-[#d7ef69]"
+                hreflang="en">EN</a
+              >
+            </div>
           </div>
 
           <div class="flex items-center gap-2 lg:hidden">
-            <a
-              href={whatsappUrl}
-              class="hidden h-[43px] items-center rounded-full px-3 text-[15px] text-[#242424] transition hover:bg-[#d7ef69] sm:flex"
-              >WhatsApp</a
+            <button
+              type="button"
+              data-mobile-menu-open
+              aria-label="Open navigation menu"
+              class="flex h-[43px] items-center gap-2 rounded-full bg-[#242424] px-5 text-[16px] text-[#f0f0f0]"
             >
-            <a
-              href={calendlyUrl}
-              class="flex h-[43px] items-center rounded-full bg-[#242424] px-5 text-[16px] text-[#f0f0f0]"
-              >Book</a
-            >
+              Menu
+              <iconify-icon icon="lucide:menu" class="text-[20px]" />
+            </button>
           </div>
         </nav>
+
+        <div
+          data-mobile-menu
+          class="fixed inset-0 z-[60] hidden bg-black/35 lg:hidden"
+          aria-hidden="true"
+        >
+          <button
+            type="button"
+            data-mobile-menu-close
+            aria-label="Close navigation menu"
+            class="absolute inset-0 h-full w-full cursor-default"
+          >
+          </button>
+          <div
+            data-mobile-menu-panel
+            class="absolute right-0 top-0 flex h-full w-[min(86vw,390px)] translate-x-full flex-col bg-[var(--current-lime)] p-5 shadow-[-24px_0_80px_rgba(0,0,0,0.25)] transition-transform duration-500 ease-out"
+          >
+            <div class="flex items-center justify-between">
+              <img
+                src="/assets/velora-logo-transparent.png"
+                alt="Velora"
+                class="h-[40px] w-[168px] object-contain object-left"
+              />
+              <button
+                type="button"
+                data-mobile-menu-close
+                aria-label="Close navigation menu"
+                class="grid size-[44px] place-items-center rounded-full bg-[#242424] text-white"
+              >
+                <iconify-icon icon="lucide:x" class="text-[22px]" />
+              </button>
+            </div>
+
+            <nav class="mt-12 flex flex-col gap-2">
+              {
+                navItems.map((item) => (
+                  <a
+                    href={item.href}
+                    data-mobile-menu-link
+                    class="flex min-h-[62px] items-center justify-between rounded-[18px] border border-[var(--current-lime-line)] bg-[#efffa0] px-5 text-[24px] leading-8 tracking-[-0.03em] text-[#242424]"
+                  >
+                    {item.label}
+                    <iconify-icon icon="lucide:arrow-up-right" class="text-[24px]" />
+                  </a>
+                ))
+              }
+            </nav>
+
+            <div class="mt-auto grid gap-3 pb-4">
+              <a
+                href={calendlyUrl}
+                data-mobile-menu-link
+                class="flex min-h-[58px] items-center justify-center rounded-full bg-[#242424] text-[18px] text-white"
+                >Konsultasi</a
+              >
+              <div class="grid grid-cols-2 gap-3">
+                <a
+                  href="/id"
+                  data-mobile-menu-link
+                  hreflang="id"
+                  class="flex min-h-[52px] items-center justify-center rounded-full border border-[#9fb148] text-[17px] text-[#242424]"
+                  >ID</a
+                >
+                <a
+                  href="/en"
+                  data-mobile-menu-link
+                  hreflang="en"
+                  class="flex min-h-[52px] items-center justify-center rounded-full border border-[#9fb148] text-[17px] text-[#242424]"
+                  >EN</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
       </header>
 
       <section
@@ -399,23 +530,25 @@ const footerGroups = [
           <p
             class="mx-auto mb-5 w-fit rounded-full border border-[var(--current-lime-line)] px-4 py-2 text-[13px] uppercase leading-none tracking-[1.8px] text-[var(--current-primary)]"
           >
-            Opening slots available - promo pricing for early clients
+            Slot opening tersedia - harga promo untuk project awal
           </p>
           <h1
             data-reveal
             data-primary-slide
             class="mx-auto max-w-[1080px] text-[clamp(48px,7.1vw,101px)] font-black leading-[0.997] tracking-[-0.025em] text-[#1e1e1e]"
           >
-            Premium websites for<br class="hidden sm:block" /> brands ready to grow
+            Jasa pembuatan website<br class="hidden sm:block" /> premium untuk bisnis
           </h1>
           <p
             class="mx-auto mt-6 max-w-[900px] text-[20px] leading-[1.4] tracking-[-0.004em] text-[rgba(91,100,54,0.85)] sm:text-2xl"
           >
-            We design and build polished websites for growing brands. From
-            landing pages and business websites to future-ready
-            <span class="text-[#1e1e1e]">ecommerce</span>, <span
-              class="text-[#1e1e1e]">SaaS</span
-            >, and <span class="text-[#1e1e1e]">custom web experiences</span>.
+            Kami membantu bisnis terlihat lebih dipercaya lewat website yang
+            rapi, cepat, mobile-friendly, dan SEO-ready. Mulai dari
+            <span class="text-[#1e1e1e]">landing page</span>, <span
+              class="text-[#1e1e1e]">company profile</span
+            >, <span class="text-[#1e1e1e]">redesign website</span>, sampai
+            <span class="text-[#1e1e1e]">ecommerce</span> dan <span
+              class="text-[#1e1e1e]">SaaS</span>.
           </p>
         </div>
 
@@ -426,16 +559,16 @@ const footerGroups = [
           <a
             href={calendlyUrl}
             class="flex h-[66px] w-full items-center justify-center rounded-full bg-[#242424] px-8 text-[19px] font-medium leading-[26px] text-white transition hover:bg-black sm:w-[285px]"
-            >Book a Free Consultation</a
+            >Konsultasi Gratis</a
           >
           <a
             href={whatsappUrl}
             class="flex h-[68px] w-full items-center justify-center gap-3 rounded-full border border-[var(--current-lime-line)] px-8 text-[19px] font-medium leading-[26px] text-[#242424] transition hover:bg-[#d7ef69] sm:w-[250px]"
-            >Chat on WhatsApp</a
+            >Chat WhatsApp</a
           >
         </div>
         <p class="mt-3 text-[15px] leading-[23px] text-[var(--current-muted)]">
-          Domain setup included for opening projects
+          Termasuk setup domain & hosting untuk project opening
         </p>
       </section>
 
@@ -546,8 +679,8 @@ const footerGroups = [
         >
           <div class="overflow-hidden rounded-[9px]">
             <img
-              src="/assets/unsplash-laptop-web.jpg"
-              alt="Premium laptop workspace for Velora Studio"
+              src="/assets/unsplash-desk-monitor.jpg"
+              alt="Premium desk setup for Velora Studio"
               class="motion-image block aspect-[1.88] w-full rounded-[9px] object-cover transition duration-[900ms] ease-out"
             />
           </div>
@@ -559,7 +692,7 @@ const footerGroups = [
           data-reveal
           class="text-center text-[16.9px] uppercase leading-4 tracking-[2px] text-[var(--current-muted)]"
         >
-          YOU’RE IN GOOD COMPANY
+          DIPERCAYA UNTUK MEMBANGUN PRESENCE DIGITAL
         </p>
         <div
           data-reveal
@@ -742,7 +875,7 @@ const footerGroups = [
                                 class="size-6 rounded-full object-cover"
                               />
                               <span>
-                                {card.author} &nbsp;•&nbsp; 1h ago &nbsp;•&nbsp;{" "}
+                                {card.author} &nbsp;•&nbsp; 1 jam lalu &nbsp;•&nbsp;{" "}
                                 {card.meta}
                               </span>
                             </>
@@ -799,7 +932,7 @@ const footerGroups = [
                                 class="size-6 rounded-full object-cover"
                               />
                               <span>
-                                {card.author} &nbsp;•&nbsp; 1h ago &nbsp;•&nbsp;{" "}
+                                {card.author} &nbsp;•&nbsp; 1 jam lalu &nbsp;•&nbsp;{" "}
                                 {card.meta}
                               </span>
                             </>
@@ -853,7 +986,7 @@ const footerGroups = [
                                 class="size-6 rounded-full object-cover"
                               />
                               <span>
-                                {card.author} &nbsp;•&nbsp; 1h ago &nbsp;•&nbsp;{" "}
+                                {card.author} &nbsp;•&nbsp; 1 jam lalu &nbsp;•&nbsp;{" "}
                                 {card.meta}
                               </span>
                             </>
@@ -884,23 +1017,23 @@ const footerGroups = [
           <h2
             class="text-[clamp(42px,5.2vw,68px)] font-medium leading-[1.03] tracking-[-0.02em]"
           >
-            Each project gets structured<br class="hidden md:block" /> and prepared
-            for launch
+            Setiap project distrukturkan<br class="hidden md:block" /> dan disiapkan
+            untuk launch
           </h2>
           <p
             class="mx-auto mt-6 max-w-[570px] text-[15px] leading-7 text-[#8f8f8f] sm:text-[19.2px]"
           >
-            At the end of the sprint, your <span class="text-[#dedede]"
-              >launch-ready website</span
-            > is packaged with responsive pages, domain setup support, and a clear
-            handoff.
+            Di akhir sprint, <span class="text-[#dedede]"
+              >website siap launch</span
+            > sudah dikemas dengan halaman responsive, support setup domain, dan
+            handoff yang jelas.
           </p>
           <a
             href={calendlyUrl}
             class="mx-auto mt-6 inline-flex h-[58px] items-center gap-3 rounded-full border border-[#333] px-5 text-[19.5px] leading-[26px] text-[#f7f7f7] transition hover:border-[#555]"
           >
             <iconify-icon icon="lucide:play" class="size-4"></iconify-icon>
-            Book a call
+            Konsultasi
           </a>
         </div>
       </section>
@@ -923,7 +1056,7 @@ const footerGroups = [
           class="mx-auto max-w-[1132px] overflow-hidden rounded border border-[#333] bg-[#1e1e1e] px-5 pb-28 pt-[54px] sm:px-10 lg:px-[146px]"
         >
           <p class="text-center text-[21.1px] leading-7 text-[#f7f7f7]">
-            Website Sprint · Opening Slots
+            Website Sprint · Slot Opening
           </p>
 
           <div class="mx-auto mt-[166px] max-w-[600px]">
@@ -935,7 +1068,7 @@ const footerGroups = [
                 <p
                   class="text-[13.2px] leading-[22px] tracking-[0.2px] text-[#686868]"
                 >
-                  2-week process
+                  proses 2 minggu
                 </p>
               </div>
               <div class="relative h-9 w-28">
@@ -996,7 +1129,7 @@ const footerGroups = [
                           class="size-6 rounded-full object-cover"
                         />
                         <span>
-                          {card.author} &nbsp;•&nbsp; 3h ago &nbsp;•&nbsp;{" "}
+                          {card.author} &nbsp;•&nbsp; 3 jam lalu &nbsp;•&nbsp;{" "}
                           {card.meta}
                         </span>
                       </div>
@@ -1022,18 +1155,18 @@ const footerGroups = [
               <p
                 class="text-[15px] uppercase leading-[20.3px] tracking-[2px] text-[var(--current-primary)]"
               >
-                Services
+                Layanan
               </p>
               <h2
                 class="mt-4 max-w-[720px] text-[clamp(42px,5vw,52px)] font-normal leading-[1.064] tracking-[-0.02em]"
               >
-                Websites for every stage<br class="hidden sm:block" /> of your brand
+                Website untuk setiap tahap<br class="hidden sm:block" /> pertumbuhan bisnis
               </h2>
             </div>
             <a
               href="#pricing"
               class="inline-flex h-[66px] w-fit items-center gap-3 rounded-full bg-[#242424] px-[25px] text-[19.3px] leading-[26.1px] text-[#f7f7f7] transition hover:bg-black"
-              >View packages <iconify-icon
+              >Lihat paket <iconify-icon
                 icon="lucide:arrow-right"
                 class="size-5"></iconify-icon></a
             >
@@ -1085,21 +1218,21 @@ const footerGroups = [
               <p
                 class="text-[15px] uppercase leading-[20.3px] tracking-[2px] text-[var(--current-lime)]"
               >
-                Platforms
+                Platform
               </p>
               <h2
                 data-reveal
                 data-primary-slide
                 class="mt-4 text-[clamp(48px,5.6vw,80px)] font-normal leading-[1.02] tracking-[-0.02em]"
               >
-                Built on the platform<br />that fits your goals
+                Dibangun di platform<br />yang sesuai goal bisnis
               </h2>
             </div>
             <p
               class="max-w-[560px] text-[19px] leading-8 text-[#8f8f8f] lg:justify-self-end"
             >
-              Custom code, WordPress, Framer, or Webflow. We recommend the setup
-              based on your content needs, timeline, and future plan.
+              Custom code, WordPress, Framer, atau Webflow. Kami rekomendasikan
+              setup berdasarkan kebutuhan konten, timeline, dan rencana growth.
             </p>
           </div>
 
@@ -1134,9 +1267,9 @@ const footerGroups = [
                   <div class="absolute inset-x-6 bottom-5 flex items-center justify-between border-t border-[#333] pt-4 text-[13px] uppercase tracking-[1.4px] text-[#686868]">
                     <span>
                       {index === 0
-                        ? "Performance"
+                            ? "Performa"
                         : index === 1
-                          ? "Content"
+                          ? "Konten"
                           : index === 2
                             ? "Motion"
                             : "CMS"}
@@ -1159,18 +1292,19 @@ const footerGroups = [
             <p
               class="text-[15px] uppercase leading-[20.3px] tracking-[2px] text-[var(--current-primary)]"
             >
-              Pricing
+              Harga
             </p>
             <h2
               class="mt-4 text-[clamp(42px,5vw,52px)] font-normal leading-[1.064] tracking-[-0.02em]"
             >
-              Opening packages for early clients
+              Paket opening untuk client awal
             </h2>
             <p
               class="mx-auto mt-5 max-w-[590px] text-[17.3px] leading-[26.1px] text-[#686868]"
             >
-              Special launch pricing for selected early projects while studio
-              capacity is still limited.
+              Harga promo untuk project terpilih selama kapasitas studio masih
+              terbatas. Cocok untuk bisnis yang ingin launch cepat dengan hasil
+              tetap premium.
             </p>
           </div>
           <div data-reveal class="mt-16 grid gap-4 lg:grid-cols-4">
@@ -1260,22 +1394,22 @@ const footerGroups = [
               <p
                 class="text-[15px] uppercase leading-[20.3px] tracking-[2px] text-[var(--current-lime)]"
               >
-                Why Velora
+                Kenapa Velora
               </p>
               <h2
                 data-reveal
                 data-primary-slide
                 class="mt-4 text-[clamp(42px,5.2vw,68px)] font-normal leading-[1.03] tracking-[-0.02em]"
               >
-                Premium execution without the heavy agency process
+                Eksekusi premium tanpa proses agency yang berat
               </h2>
             </div>
             <p
               class="max-w-[570px] text-[19px] leading-8 text-[#8f8f8f] lg:justify-self-end"
             >
-              Built for brands that want to look trusted sooner, launch with
-              confidence, and keep space to grow into ecommerce, SaaS, or custom
-              digital products later.
+              Dibuat untuk brand yang ingin terlihat lebih dipercaya, launch
+              lebih cepat, dan tetap punya ruang untuk berkembang ke ecommerce,
+              SaaS, atau produk digital custom.
             </p>
           </div>
 
@@ -1285,13 +1419,12 @@ const footerGroups = [
           >
             <div class="rounded-lg border border-[#333] bg-[#1e1e1e] p-6">
               <p class="text-[14px] uppercase tracking-[1.8px] text-[#8f8f8f]">
-                Studio approach
+                Pendekatan studio
               </p>
               <h3
                 class="mt-6 text-[34px] font-normal leading-[1.08] tracking-[-0.03em] text-[#f7f7f7]"
               >
-                Clear direction, polished visuals, and a build that is ready to
-                go live.
+                Direction jelas, visual polished, dan build yang siap go live.
               </h3>
               <div class="mt-10 grid grid-cols-2 gap-3">
                 <div class="rounded-lg border border-[#333] p-4">
@@ -1301,7 +1434,7 @@ const footerGroups = [
                     2w
                   </p>
                   <p class="mt-2 text-[14px] leading-5 text-[#8f8f8f]">
-                    Focused launch sprint
+                    Sprint launch fokus
                   </p>
                 </div>
                 <div class="rounded-lg border border-[#333] p-4">
@@ -1311,7 +1444,7 @@ const footerGroups = [
                     4+
                   </p>
                   <p class="mt-2 text-[14px] leading-5 text-[#8f8f8f]">
-                    Platforms supported
+                    Platform tersedia
                   </p>
                 </div>
               </div>
@@ -1352,14 +1485,14 @@ const footerGroups = [
               <p
                 class="text-[12.9px] font-medium uppercase leading-[17.4px] tracking-[2px] text-[var(--current-primary)]"
               >
-                Customer Stories
+                Cerita Client
               </p>
               <h2
                 data-reveal
                 data-primary-slide
                 class="mt-3 max-w-[590px] text-[clamp(38px,4.4vw,52px)] font-normal leading-[1.064] tracking-[-0.02em] text-[#242424]"
               >
-                Websites that make<br class="hidden sm:block" /> brands feel trusted
+                Website yang membuat<br class="hidden sm:block" /> brand lebih dipercaya
               </h2>
             </div>
 
@@ -1398,10 +1531,10 @@ const footerGroups = [
                 id="ts-quote"
                 class="max-w-[780px] text-[17px] leading-7 text-[#1e1e1e] sm:text-[19.2px] transition-opacity duration-300"
               >
-                “Velora helped us turn a scattered offer into a website that
-                finally feels premium, clear, and ready to send to clients. The
-                process was focused, the design direction felt sharp, and the
-                launch support made the whole thing feel easy.”
+                “Velora membantu kami mengubah offer yang masih berantakan
+                menjadi website yang terasa premium, jelas, dan siap dikirim ke
+                calon client. Prosesnya fokus, arah desainnya tajam, dan support
+                launch-nya membuat semuanya terasa lebih mudah.”
               </p>
 
               <div class="mt-12 flex items-center gap-3">
@@ -1409,7 +1542,7 @@ const footerGroups = [
                   id="ts-avatar"
                   src="/assets/testimonial-avatar.png"
                   alt="Rafi Mahendra"
-                  class="size-[58px] rounded-full object-cover transition-opacity duration-300"
+                  class="size-[72px] rounded-full object-cover transition-opacity duration-300"
                 />
                 <div
                   class="transition-opacity duration-300"
@@ -1425,7 +1558,7 @@ const footerGroups = [
                     id="ts-role"
                     class="text-[19.2px] leading-7 text-[#8f8f8f]"
                   >
-                    Founder, Studio Client
+                    Founder, Brand Client
                   </p>
                 </div>
               </div>
@@ -1438,7 +1571,7 @@ const footerGroups = [
                 id="ts-logo"
                 src="/assets/testimonial-mercury.svg"
                 alt="Mercury"
-                class="h-[32px] w-auto transition-opacity duration-300"
+                class="h-[22px] w-[132px] object-contain transition-opacity duration-300"
               />
             </aside>
           </div>
@@ -1479,13 +1612,13 @@ const footerGroups = [
             <h2
               class="mt-3 text-[clamp(42px,5vw,56px)] font-normal leading-[1.064] tracking-[-0.02em] text-[#242424]"
             >
-              Questions before we start?
+              Pertanyaan sebelum mulai?
             </h2>
             <p
               class="mx-auto mt-5 max-w-[560px] text-[17.3px] leading-[26.1px] text-[#686868]"
             >
-              Quick answers about scope, platforms, launch setup, and opening
-              project pricing.
+              Jawaban cepat tentang scope, platform, setup launch, dan harga
+              opening project.
             </p>
           </div>
           <div data-reveal class="mt-14 flex flex-col gap-[12px]">
@@ -1558,7 +1691,7 @@ const footerGroups = [
           <h2
             class="mt-6 text-[clamp(42px,5vw,52px)] font-normal leading-[1.064] tracking-[-0.02em] text-[#f7f7f7]"
           >
-            Ready to make your website feel premium?
+            Siap bikin website bisnis terasa lebih premium?
           </h2>
         </div>
         <div class="mt-[59px] border-y border-[#333]">
@@ -1572,7 +1705,7 @@ const footerGroups = [
             <a
               href={calendlyUrl}
               class="flex min-h-[161px] items-center justify-center rounded-full border-x border-[#333] bg-[var(--current-lime)] px-6 text-center text-[clamp(42px,5.5vw,66px)] leading-[1.1] tracking-[-0.03em] text-[#242424] transition hover:brightness-95"
-              >Book a Free Consultation</a
+              >Konsultasi Gratis</a
             >
             <div
               class="hidden min-h-[161px] rounded-l-lg border-x border-[#333] lg:block"
@@ -1593,13 +1726,13 @@ const footerGroups = [
                 href={whatsappUrl}
                 class="flex items-center justify-center gap-3 rounded-full border border-[#333] px-6 text-[24px] leading-[32px] text-[#f7f7f7] transition hover:bg-[#181818] sm:text-[30px] sm:leading-[40.6px]"
                 ><iconify-icon icon="lucide:message-circle" class="size-8"
-                ></iconify-icon>Chat on WhatsApp</a
+                ></iconify-icon>Chat WhatsApp</a
               >
               <a
                 href="#pricing"
                 class="flex items-center justify-center gap-3 rounded-full border border-[#333] px-6 text-[24px] leading-[32px] text-[#f7f7f7] transition hover:bg-[#181818] sm:text-[30px] sm:leading-[40.6px]"
                 ><iconify-icon icon="lucide:layers" class="size-8"
-                ></iconify-icon>View packages</a
+                ></iconify-icon>Lihat paket</a
               >
             </div>
             <div
@@ -1652,7 +1785,7 @@ const footerGroups = [
           <div
             class="mt-32 flex flex-col gap-4 border-t border-[#242424] pt-6 text-[#8f8f8f] md:flex-row md:items-center md:justify-between"
           >
-            <p>Opening pricing for selected early projects.</p><p>
+            <p>Harga opening untuk project awal terpilih.</p><p>
               © 2026 Velora Studio
             </p>
           </div>
@@ -1702,6 +1835,43 @@ const footerGroups = [
         });
       });
 
+      const mobileMenu = document.querySelector("[data-mobile-menu]");
+      const mobileMenuPanel = document.querySelector("[data-mobile-menu-panel]");
+      const mobileMenuOpen = document.querySelector("[data-mobile-menu-open]");
+      const mobileMenuCloseItems = document.querySelectorAll(
+        "[data-mobile-menu-close], [data-mobile-menu-link]",
+      );
+
+      function setMobileMenu(open: boolean) {
+        if (!(mobileMenu instanceof HTMLElement)) return;
+        if (!(mobileMenuPanel instanceof HTMLElement)) return;
+
+        if (open) {
+          mobileMenu.classList.remove("hidden");
+          mobileMenu.setAttribute("aria-hidden", "false");
+          document.body.style.overflow = "hidden";
+          requestAnimationFrame(() => {
+            mobileMenuPanel.style.transform = "translateX(0)";
+          });
+          return;
+        }
+
+        mobileMenuPanel.style.transform = "translateX(100%)";
+        mobileMenu.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "";
+        window.setTimeout(() => {
+          mobileMenu.classList.add("hidden");
+        }, 450);
+      }
+
+      mobileMenuOpen?.addEventListener("click", () => setMobileMenu(true));
+      mobileMenuCloseItems.forEach((item) => {
+        item.addEventListener("click", () => setMobileMenu(false));
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape") setMobileMenu(false);
+      });
+
       document.querySelectorAll("[data-faq-question]").forEach((button) => {
         button.addEventListener("click", () => {
           const parent = button.closest("[data-faq-item]");
@@ -1713,15 +1883,15 @@ const footerGroups = [
       const testimonials = [
         {
           quote:
-            "Velora helped us turn a scattered offer into a website that finally feels premium, clear, and ready to send to clients. The process was focused, the design direction felt sharp, and the launch support made the whole thing feel easy.",
+            "Velora membantu kami mengubah offer yang masih berantakan menjadi website yang terasa premium, jelas, dan siap dikirim ke calon client. Prosesnya fokus, arah desainnya tajam, dan support launch-nya membuat semuanya terasa lebih mudah.",
           name: "Rafi Mahendra",
-          role: "Founder, Studio Client",
+          role: "Founder, Brand Client",
           avatar: "/assets/testimonial-avatar.png",
           logo: "/assets/testimonial-mercury.svg",
         },
         {
           quote:
-            "Finally, an agency that actually builds what they design, and does it fast. We saw an immediate increase in trust from our enterprise clients after the redesign.",
+            "Akhirnya ketemu studio yang bukan cuma desain, tapi juga benar-benar build dengan cepat. Website baru membuat brand terasa lebih terpercaya di mata calon client.",
           name: "Sarah Lin",
           role: "CMO, Cognite",
           avatar: "/assets/work-avatar-rachel.png",
@@ -1729,7 +1899,7 @@ const footerGroups = [
         },
         {
           quote:
-            "The visual direction is sharp and the site loads incredibly fast. Velora's sprint process is exactly what modern startups need instead of dragging out projects for months.",
+            "Arah visualnya tajam dan websitenya terasa cepat. Proses sprint Velora cocok untuk brand modern yang tidak ingin project berlarut-larut.",
           name: "David Chen",
           role: "CEO, Aidn",
           avatar: "/assets/work-avatar-scott.png",

@@ -1,0 +1,137 @@
+---
+import SiteLayout from "../../layouts/SiteLayout.astro";
+import { baseServiceSchema, priorityCities, siteUrl } from "../../data/seo";
+
+export function getStaticPaths() {
+  return priorityCities.map((city) => ({
+    params: { slug: city.slug },
+    props: { city },
+  }));
+}
+
+const { city } = Astro.props;
+const whatsappUrl = "https://wa.me/628xxxxxxxxxx";
+const calendlyUrl = "https://calendly.com/yourname/consultation";
+const cityKeyword = `jasa pembuatan website ${city.city}`;
+const relatedKeywords = [
+  `jasa website ${city.city}`,
+  `jasa landing page ${city.city}`,
+  `jasa website company profile ${city.city}`,
+  `jasa redesign website ${city.city}`,
+  `jasa website bisnis ${city.city}`,
+  `jasa toko online ${city.city}`,
+];
+
+const faqs = [
+  [`Apakah Velora melayani jasa pembuatan website di ${city.city}?`, `Ya. Velora melayani pembuatan website untuk bisnis di ${city.city} dan seluruh Indonesia secara remote, mulai dari landing page, company profile, redesign, sampai website custom.`],
+  [`Berapa harga website untuk bisnis di ${city.city}?`, "Harga promo landing page dimulai dari Rp1.000.000. Website bisnis, ecommerce, SaaS, dan custom project mengikuti kebutuhan halaman, fitur, konten, dan platform."],
+  [`Apakah bisa website SEO friendly untuk target ${city.city}?`, `Bisa. Struktur halaman bisa disiapkan dengan keyword lokal seperti ${cityKeyword}, metadata, heading, internal link, schema, dan konten yang relevan.`],
+];
+
+const schema = [
+  {
+    ...baseServiceSchema,
+    "@type": "LocalBusiness",
+    name: `Velora Studio - ${cityKeyword}`,
+    url: `${siteUrl}/id/${city.slug}/`,
+    areaServed: [city.city, city.province, "Indonesia"],
+    description: `Jasa pembuatan website profesional untuk bisnis di ${city.city}: landing page, company profile, redesign website, WordPress, Framer, Webflow, ecommerce, dan SaaS.`,
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map(([question, answer]) => ({
+      "@type": "Question",
+      name: question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: answer,
+      },
+    })),
+  },
+];
+---
+
+<SiteLayout
+  title={`Jasa Pembuatan Website ${city.city} | Velora Studio`}
+  description={`Velora Studio menyediakan jasa pembuatan website ${city.city} untuk landing page, company profile, redesign website, WordPress, Framer, Webflow, ecommerce, dan SaaS.`}
+  keywords={[cityKeyword, ...relatedKeywords, "jasa pembuatan website profesional", "website SEO friendly"].join(", ")}
+  lang="id"
+  canonicalPath={`/id/${city.slug}/`}
+  jsonLd={schema}
+>
+  <section class="px-6 pb-20 pt-16 lg:pb-28 lg:pt-24">
+    <div class="mx-auto grid max-w-[1329px] gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
+      <div data-reveal>
+        <p class="text-[14px] uppercase tracking-[2px] text-[var(--current-primary)]">
+          {cityKeyword}
+        </p>
+        <h1 data-reveal data-primary-slide class="mt-5 max-w-[860px] text-[clamp(48px,7vw,104px)] font-normal leading-[0.96] tracking-[-0.04em] text-[#242424]">
+          Jasa pembuatan website {city.city} untuk brand yang ingin terlihat lebih profesional.
+        </h1>
+      </div>
+      <div data-reveal class="max-w-[660px] lg:ml-auto">
+        <p class="text-[clamp(20px,2.2vw,28px)] leading-[1.35] tracking-[-0.02em] text-[#242424]">
+          Velora membantu bisnis di {city.city} membuat website premium, cepat,
+          mobile-friendly, dan SEO-ready {city.angle}
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href={whatsappUrl} class="rounded-full bg-[#242424] px-6 py-3 text-[16px] text-white transition hover:bg-black">
+            Konsultasi via WhatsApp
+          </a>
+          <a href={calendlyUrl} class="rounded-full border border-[#9fb148] px-6 py-3 text-[16px] text-[#242424] transition hover:bg-[#d7ef69]">
+            Konsultasi
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[#121212] px-6 py-20 text-white lg:py-28">
+    <div class="mx-auto max-w-[1329px]">
+      <div data-reveal class="max-w-[760px]">
+        <p class="text-[14px] uppercase tracking-[2px] text-[var(--current-lime)]">
+          Layanan website di {city.city}
+        </p>
+        <h2 class="mt-4 text-[clamp(42px,5vw,72px)] font-normal leading-[1] tracking-[-0.04em]">
+          Landing page, company profile, redesign, ecommerce, dan website custom.
+        </h2>
+      </div>
+      <div class="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        {
+          relatedKeywords.map((keyword) => (
+            <article data-reveal class="rounded-lg border border-[#333] bg-[#1b1b1b] p-6">
+              <h3 class="text-[26px] leading-8 tracking-[-0.03em] text-white">{keyword}</h3>
+              <p class="mt-4 text-[17px] leading-7 text-[#a9a9a9]">
+                Struktur, visual, responsive layout, basic SEO, dan CTA disiapkan agar website lebih siap dipakai promosi.
+              </p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white px-6 py-20 lg:py-28">
+    <div class="mx-auto grid max-w-[1329px] gap-5 lg:grid-cols-[0.85fr_1.15fr]">
+      <div data-reveal>
+        <p class="text-[14px] uppercase tracking-[2px] text-[var(--current-primary)]">
+          FAQ lokal
+        </p>
+        <h2 class="mt-4 text-[clamp(42px,5vw,72px)] font-normal leading-[1] tracking-[-0.04em] text-[#242424]">
+          Sebelum membuat website di {city.city}.
+        </h2>
+      </div>
+      <div class="grid gap-3">
+        {
+          faqs.map(([question, answer]) => (
+            <article data-reveal class="rounded-lg border border-[#dedede] bg-[#f7f7f7] p-6">
+              <h3 class="text-[24px] leading-8 tracking-[-0.02em] text-[#242424]">{question}</h3>
+              <p class="mt-3 text-[17px] leading-7 text-[#686868]">{answer}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</SiteLayout>

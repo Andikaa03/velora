@@ -1,0 +1,144 @@
+---
+const navItems = [
+  { label: "Layanan", href: "/#features" },
+  { label: "Harga", href: "/#pricing" },
+  { label: "Tentang", href: "/about" },
+  { label: "Blog", href: "/blog" },
+  { label: "Kontak", href: "/contact" },
+];
+
+const calendlyUrl = "https://calendly.com/yourname/consultation";
+---
+
+<header class="sticky top-0 z-50 w-full bg-[var(--current-lime)]">
+  <nav
+    class="mx-auto flex h-[75px] w-full max-w-[1440px] items-center justify-between px-5 sm:px-8 lg:px-12"
+  >
+    <a
+      href="/"
+      aria-label="Velora Studio home"
+      class="flex h-12 min-w-0 items-center overflow-hidden"
+    >
+      <img
+        src="/assets/velora-logo-transparent.png"
+        alt="Velora"
+        class="h-[40px] w-[168px] object-contain object-left sm:h-[44px] sm:w-[198px] lg:h-[46px] lg:w-[210px]"
+      />
+    </a>
+
+    <div class="hidden items-center gap-1 lg:flex">
+      {
+        navItems.map((item) => (
+          <a
+            href={item.href}
+            class="flex h-[43px] items-center rounded-full px-2 text-[16px] leading-[23px] text-[#242424] transition hover:bg-[#d7ef69] xl:px-3 xl:text-[17px]"
+          >
+            {item.label}
+          </a>
+        ))
+      }
+      <div class="mx-4 h-6 w-px bg-[#c6df5d]"></div>
+      <a
+        href={calendlyUrl}
+        class="ml-1 flex h-[43px] items-center rounded-full bg-[#242424] px-6 text-[17px] leading-[23px] text-white transition hover:bg-black"
+        >Konsultasi</a
+      >
+      <div class="ml-2 flex rounded-full border border-[#c6df5d] p-1">
+        <a
+          href="/id"
+          class="rounded-full px-3 py-1 text-[14px] text-[#242424] transition hover:bg-[#d7ef69]"
+          hreflang="id">ID</a
+        >
+        <a
+          href="/en"
+          class="rounded-full px-3 py-1 text-[14px] text-[#242424] transition hover:bg-[#d7ef69]"
+          hreflang="en">EN</a
+        >
+      </div>
+    </div>
+
+    <button
+      type="button"
+      data-mobile-menu-open
+      aria-label="Open navigation menu"
+      class="flex h-[43px] items-center gap-2 rounded-full bg-[#242424] px-5 text-[16px] leading-[23px] text-white transition hover:bg-black lg:hidden"
+    >
+      Menu
+      <iconify-icon icon="lucide:menu" class="text-[20px]" />
+    </button>
+  </nav>
+
+  <div
+    data-mobile-menu
+    class="fixed inset-0 z-[60] hidden bg-black/35 lg:hidden"
+    aria-hidden="true"
+  >
+    <button
+      type="button"
+      data-mobile-menu-close
+      aria-label="Close navigation menu"
+      class="absolute inset-0 h-full w-full cursor-default"
+    >
+    </button>
+    <div
+      data-mobile-menu-panel
+      class="absolute right-0 top-0 flex h-full w-[min(86vw,390px)] translate-x-full flex-col bg-[var(--current-lime)] p-5 shadow-[-24px_0_80px_rgba(0,0,0,0.25)] transition-transform duration-500 ease-out"
+    >
+      <div class="flex items-center justify-between">
+        <img
+          src="/assets/velora-logo-transparent.png"
+          alt="Velora"
+          class="h-[40px] w-[168px] object-contain object-left"
+        />
+        <button
+          type="button"
+          data-mobile-menu-close
+          aria-label="Close navigation menu"
+          class="grid size-[44px] place-items-center rounded-full bg-[#242424] text-white"
+        >
+          <iconify-icon icon="lucide:x" class="text-[22px]" />
+        </button>
+      </div>
+
+      <nav class="mt-12 flex flex-col gap-2">
+        {
+          navItems.map((item) => (
+            <a
+              href={item.href}
+              data-mobile-menu-link
+              class="flex min-h-[62px] items-center justify-between rounded-[18px] border border-[var(--current-lime-line)] bg-[#efffa0] px-5 text-[24px] leading-8 tracking-[-0.03em] text-[#242424]"
+            >
+              {item.label}
+              <iconify-icon icon="lucide:arrow-up-right" class="text-[24px]" />
+            </a>
+          ))
+        }
+      </nav>
+
+      <div class="mt-auto grid gap-3 pb-4">
+        <a
+          href={calendlyUrl}
+          data-mobile-menu-link
+          class="flex min-h-[58px] items-center justify-center rounded-full bg-[#242424] text-[18px] text-white"
+          >Konsultasi</a
+        >
+        <div class="grid grid-cols-2 gap-3">
+          <a
+            href="/id"
+            data-mobile-menu-link
+            hreflang="id"
+            class="flex min-h-[52px] items-center justify-center rounded-full border border-[#9fb148] text-[17px] text-[#242424]"
+            >ID</a
+          >
+          <a
+            href="/en"
+            data-mobile-menu-link
+            hreflang="en"
+            class="flex min-h-[52px] items-center justify-center rounded-full border border-[#9fb148] text-[17px] text-[#242424]"
+            >EN</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

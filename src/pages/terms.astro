@@ -1,0 +1,32 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+
+const sections = [
+  ["Scope project", "Setiap project mengikuti paket, proposal, timeline, dan deliverables yang disepakati sebelum produksi dimulai."],
+  ["Konten dan asset", "Client bertanggung jawab menyediakan informasi bisnis, brand asset, copy, gambar, dan akses yang dibutuhkan untuk pengerjaan."],
+  ["Timeline", "Timeline bergantung pada scope, kecepatan feedback, kesiapan konten, dan kebutuhan platform. Jadwal launch bisa berubah jika input terlambat."],
+  ["Pembayaran", "Harga, jadwal pembayaran, dan layanan yang termasuk akan dikonfirmasi per project. Harga promo dapat berubah untuk project berikutnya."],
+  ["Ownership", "Asset final dan implementasi website diserahkan setelah project selesai dan pembayaran beres, kecuali ada ketentuan lisensi pihak ketiga."],
+];
+---
+
+<SiteLayout
+  title="Ketentuan Layanan | Velora Studio"
+  description="Ketentuan project Velora Studio untuk scope, timeline, pembayaran, konten, dan ownership website."
+  lang="id"
+  canonicalPath="/terms/"
+>
+  <section class="px-6 py-20 lg:py-28">
+    <div class="mx-auto max-w-[980px]">
+      <p data-reveal class="text-[14px] uppercase tracking-[2px] text-[var(--current-primary)]">Legal</p>
+      <h1 data-reveal data-primary-slide class="mt-5 text-[clamp(54px,7vw,92px)] font-normal leading-[0.98] tracking-[-0.04em] text-[#242424]">Ketentuan</h1>
+      <p data-reveal class="mt-6 text-[20px] leading-8 text-[#4f4f4f]">
+        Ringkasan sederhana tentang bagaimana project Velora Studio discoping,
+        dikerjakan, dan diserahterimakan.
+      </p>
+      <div class="mt-14 grid gap-4">
+        {sections.map(([title, copy], index) => <section data-reveal class="grid gap-4 rounded-lg border border-[#c6df5d] bg-white p-6 sm:grid-cols-[120px_1fr] sm:p-8"><p class="text-[18px] text-[var(--current-primary)]">{String(index + 1).padStart(2, "0")}</p><div><h2 class="text-[28px] leading-8 tracking-[-0.02em] text-[#242424]">{title}</h2><p class="mt-4 text-[17px] leading-7 text-[#686868]">{copy}</p></div></section>)}
+      </div>
+    </div>
+  </section>
+</SiteLayout>

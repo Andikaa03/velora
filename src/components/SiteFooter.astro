@@ -1,0 +1,84 @@
+---
+const calendlyUrl = "https://calendly.com/yourname/consultation";
+const whatsappUrl = "https://wa.me/628xxxxxxxxxx";
+
+const footerGroups = [
+  {
+    title: "Studio",
+    links: [
+      { label: "Tentang", href: "/about" },
+      { label: "Layanan", href: "/features" },
+      { label: "Blog", href: "/blog" },
+      { label: "Harga", href: "/#pricing" },
+    ],
+  },
+  {
+    title: "Projects",
+    links: [
+      { label: "Landing Page", href: "/#pricing" },
+      { label: "Website Bisnis", href: "/#pricing" },
+      { label: "Redesign Website", href: "/#features" },
+      { label: "Project Custom", href: "/#pricing" },
+    ],
+  },
+  {
+    title: "Legal",
+    links: [
+      { label: "Kebijakan Privasi", href: "/privacy-policy" },
+      { label: "Ketentuan", href: "/terms" },
+      { label: "Kontak", href: "/contact" },
+    ],
+  },
+];
+---
+
+<footer class="bg-[#121212] px-6 py-12 text-[15.4px] leading-[23.2px]">
+  <div class="mx-auto max-w-[1329px]">
+    <div
+      class="grid gap-12 md:grid-cols-4 lg:grid-cols-[1.4fr_1fr_1fr_1fr] lg:gap-6"
+    >
+      <div>
+        <div class="flex h-9 items-center overflow-hidden">
+          <img
+            src="/assets/velora-logo-transparent.png"
+            alt="Velora"
+            class="h-[34px] w-[170px] object-contain object-left invert"
+          />
+        </div>
+        <p class="mt-4 max-w-[330px] text-[#8f8f8f]">
+          Jasa pembuatan website premium untuk bisnis yang ingin terlihat lebih
+          dipercaya, launch lebih cepat, dan punya presence digital yang kuat.
+        </p>
+      </div>
+      {
+        footerGroups.map((group) => (
+          <div class="flex flex-col gap-2">
+            <p class="text-[#8f8f8f]">{group.title}</p>
+            <nav class="mt-1 flex flex-col gap-2">
+              {group.links.map((link) => (
+                <a
+                  href={link.href}
+                  class="text-[#f7f7f7] transition hover:text-[var(--current-lime)]"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </nav>
+          </div>
+        ))
+      }
+    </div>
+    <div
+      class="mt-32 flex flex-col gap-4 border-t border-[#242424] pt-6 text-[#8f8f8f] md:flex-row md:items-center md:justify-between"
+    >
+      <p>Harga opening untuk project awal terpilih.</p>
+      <div class="flex flex-wrap gap-4">
+        <a href={whatsappUrl} class="transition hover:text-white">WhatsApp</a>
+        <a href={calendlyUrl} class="transition hover:text-white"
+          >Konsultasi</a
+        >
+        <p>© 2026 Velora Studio</p>
+      </div>
+    </div>
+  </div>
+</footer>

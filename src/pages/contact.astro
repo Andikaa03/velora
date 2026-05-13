@@ -1,0 +1,126 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+
+const calendlyUrl = "https://calendly.com/yourname/consultation";
+const whatsappUrl = "https://wa.me/628xxxxxxxxxx";
+
+const contactOptions = [
+  {
+    title: "Book konsultasi",
+    copy: "Cocok kalau kamu ingin bahas direction, scope, platform, harga, dan timeline sebelum mulai.",
+    href: calendlyUrl,
+    cta: "Buka kalender",
+    icon: "lucide:calendar-days",
+  },
+  {
+    title: "Chat WhatsApp",
+    copy: "Cocok untuk pertanyaan cepat tentang landing page, website bisnis, redesign, ecommerce, SaaS, atau project custom.",
+    href: whatsappUrl,
+    cta: "Mulai chat",
+    icon: "lucide:message-circle",
+  },
+];
+
+const projectTypes = [
+  "Landing page premium",
+  "Website bisnis",
+  "Redesign website",
+  "Website WordPress",
+  "Website Framer atau Webflow",
+  "Website ecommerce",
+  "Website SaaS atau produk",
+  "Website custom code",
+];
+
+const checklist = [
+  "Website ini untuk bisnis atau produk apa?",
+  "Butuh satu landing page atau website multi-halaman?",
+  "Sudah punya copy, logo, image, domain, atau hosting?",
+  "Platform yang diinginkan: custom code, WordPress, Framer, atau Webflow?",
+  "Kapan target launch?",
+];
+---
+
+<SiteLayout
+  title="Kontak Velora Studio | Jasa Website Indonesia"
+  description="Hubungi Velora Studio untuk landing page, website bisnis, redesign website, WordPress, Framer, Webflow, ecommerce, SaaS, dan website custom."
+  lang="id"
+  canonicalPath="/contact/"
+>
+  <section class="px-6 pb-20 pt-16 lg:pb-28 lg:pt-24">
+    <div class="mx-auto grid max-w-[1329px] gap-10 lg:grid-cols-[1fr_0.9fr] lg:items-end">
+      <div data-reveal>
+        <p class="text-[14px] uppercase tracking-[2px] text-[var(--current-primary)]">Mulai project</p>
+        <h1 data-reveal data-primary-slide class="mt-5 text-[clamp(54px,7vw,104px)] font-normal leading-[0.96] tracking-[-0.04em] text-[#242424]">
+          Mari bentuk website kamu jadi lebih premium.
+        </h1>
+      </div>
+      <div data-reveal class="rounded-lg border border-[#c6df5d] bg-white p-7">
+        <p class="text-[22px] leading-8 tracking-[-0.02em] text-[#242424]">
+          Ceritakan website yang ingin dibangun. Velora bisa bantu landing page,
+          website bisnis, redesign, WordPress, Framer, Webflow, ecommerce,
+          SaaS, dan custom-coded experience.
+        </p>
+        <div class="mt-8 grid gap-3">
+          <a href={calendlyUrl} class="flex min-h-[64px] items-center justify-center rounded-full bg-[#242424] px-6 text-[18px] text-white transition hover:bg-black">Book konsultasi</a>
+          <a href={whatsappUrl} class="flex min-h-[64px] items-center justify-center rounded-full border border-[#dedede] px-6 text-[18px] text-[#242424] transition hover:bg-[#f7f7f7]">Chat WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[#121212] px-6 py-20 text-white lg:py-28">
+    <div class="mx-auto grid max-w-[1329px] gap-5 lg:grid-cols-2">
+      {
+        contactOptions.map((option) => (
+          <a href={option.href} data-reveal data-card-motion class="rounded-lg border border-[#333] bg-[#1b1b1b] p-7 transition hover:bg-[#202020]">
+            <span class="grid size-[64px] place-items-center rounded-full bg-[var(--current-lime)]">
+              <iconify-icon icon={option.icon} class="text-[34px] text-[#242424]" />
+            </span>
+            <h2 class="mt-16 text-[42px] leading-[1] tracking-[-0.04em]">{option.title}</h2>
+            <p class="mt-5 max-w-[560px] text-[18px] leading-7 text-[#b8b8b8]">{option.copy}</p>
+            <span class="mt-8 inline-flex items-center gap-2 text-[18px] text-[var(--current-lime)]">
+              {option.cta}
+              <iconify-icon icon="lucide:arrow-up-right" class="text-[22px]" />
+            </span>
+          </a>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="bg-white px-6 py-20 lg:py-28">
+    <div class="mx-auto max-w-[1329px]">
+      <div data-reveal class="grid gap-8 lg:grid-cols-[0.85fr_1fr] lg:items-end">
+        <div>
+          <p class="text-[14px] uppercase tracking-[2px] text-[var(--current-primary)]">Tipe project</p>
+          <h2 class="mt-4 text-[clamp(42px,5vw,72px)] font-normal leading-[1] tracking-[-0.04em] text-[#242424]">
+            Website bisa dimulai sederhana dan berkembang pelan-pelan.
+          </h2>
+        </div>
+        <p class="max-w-[560px] text-[19px] leading-8 text-[#565656] lg:ml-auto">
+          Kalau scope masih belum jelas, tidak masalah. Kami bisa bantu rekomendasikan
+          mulai dari landing page, website multi-halaman, redesign, CMS,
+          ecommerce, SaaS, atau custom build.
+        </p>
+      </div>
+      <div class="mt-14 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        {projectTypes.map((type) => <div data-reveal class="rounded-lg border border-[#dedede] bg-[#f7f7f7] p-5 text-[19px] leading-7 tracking-[-0.02em] text-[#242424]">{type}</div>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="px-6 py-20 lg:py-28">
+    <div data-reveal class="mx-auto grid max-w-[1329px] overflow-hidden rounded-lg border border-[#c6df5d] bg-white lg:grid-cols-[0.9fr_1.1fr]">
+      <div class="bg-[var(--current-lime)] p-7 lg:p-10">
+        <p class="text-[14px] uppercase tracking-[2px] text-[var(--current-primary)]">Sebelum konsultasi</p>
+        <h2 class="mt-5 text-[clamp(42px,5vw,72px)] font-normal leading-[1] tracking-[-0.04em] text-[#242424]">
+          Beberapa detail ini membantu rekomendasi lebih cepat.
+        </h2>
+      </div>
+      <div class="divide-y divide-[#dedede]">
+        {checklist.map((item) => <div class="flex items-start gap-4 p-6 lg:p-8"><iconify-icon icon="lucide:check" class="mt-1 text-[28px] text-[var(--current-primary)]" /><p class="text-[20px] leading-8 tracking-[-0.02em] text-[#242424]">{item}</p></div>)}
+      </div>
+    </div>
+  </section>
+</SiteLayout>

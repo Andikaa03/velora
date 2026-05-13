@@ -1,0 +1,174 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+import { baseServiceSchema, keywordClusters, priorityCities, siteUrl } from "../data/seo";
+
+const whatsappUrl = "https://wa.me/628xxxxxxxxxx";
+const calendlyUrl = "https://calendly.com/yourname/consultation";
+
+const services = [
+  ["Jasa Landing Page", "Website satu halaman untuk promosi produk, campaign, personal brand, dan penawaran jasa dengan CTA yang jelas.", "lucide:mouse-pointer-click"],
+  ["Website Company Profile", "Website bisnis multi-halaman untuk menampilkan profil perusahaan, layanan, portfolio, testimoni, dan kontak.", "lucide:building-2"],
+  ["Jasa Redesign Website", "Perbaikan tampilan, struktur konten, mobile layout, trust signal, dan arah visual agar website terasa lebih premium.", "lucide:refresh-cw"],
+  ["WordPress, Framer, Webflow", "Pilih platform sesuai kebutuhan: mudah update, visual modern, CMS, atau custom code yang fleksibel.", "lucide:layout-template"],
+  ["Toko Online & Ecommerce", "Website penjualan produk dengan struktur katalog, halaman produk, dan fondasi untuk checkout atau integrasi lanjutan.", "lucide:shopping-bag"],
+  ["Website SaaS & Custom", "Marketing website untuk aplikasi, dashboard, platform digital, startup, dan produk custom yang ingin terlihat kredibel.", "lucide:blocks"],
+];
+
+const faqs = [
+  ["Berapa harga jasa pembuatan website di Velora?", "Harga promo dimulai dari Rp1.000.000 untuk landing page. Website bisnis, redesign, ecommerce, SaaS, dan custom project menyesuaikan scope."],
+  ["Apakah bisa buat website untuk bisnis di luar Cianjur atau Bandung?", "Bisa. Velora melayani project website untuk seluruh Indonesia, termasuk Cianjur, Bandung, Jakarta, Bogor, Sukabumi, Bekasi, Tangerang, Depok, Surabaya, dan Bali."],
+  ["Apakah website sudah SEO friendly?", "Struktur dasar SEO disiapkan: heading, meta title, meta description, responsive layout, kecepatan, schema, sitemap, dan konten yang relevan."],
+  ["Platform apa yang paling cocok?", "Tergantung kebutuhan. Custom code cocok untuk performa dan fleksibilitas, WordPress untuk blog dan update mudah, Framer untuk landing page modern, Webflow untuk CMS visual."],
+];
+
+const schema = [
+  baseServiceSchema,
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map(([question, answer]) => ({
+      "@type": "Question",
+      name: question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: answer,
+      },
+    })),
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Velora Studio",
+    url: siteUrl,
+    inLanguage: "id-ID",
+    potentialAction: {
+      "@type": "SearchAction",
+      target: `${siteUrl}/blog?search={search_term_string}`,
+      "query-input": "required name=search_term_string",
+    },
+  },
+];
+---
+
+<SiteLayout
+  title="Jasa Pembuatan Website Profesional Indonesia | Velora Studio"
+  description="Velora Studio menyediakan jasa pembuatan website profesional, landing page, company profile, redesign website, WordPress, Framer, Webflow, ecommerce, dan SaaS untuk bisnis di Indonesia."
+  keywords={[...keywordClusters.primary, ...keywordClusters.services, ...keywordClusters.local].join(", ")}
+  lang="id"
+  canonicalPath="/id/"
+  jsonLd={schema}
+>
+  <section class="px-6 pb-20 pt-16 lg:pb-28 lg:pt-24">
+    <div class="mx-auto grid max-w-[1329px] gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
+      <div data-reveal>
+        <p class="text-[14px] uppercase tracking-[2px] text-[var(--current-primary)]">
+          Jasa Website Profesional
+        </p>
+        <h1 data-reveal data-primary-slide class="mt-5 max-w-[820px] text-[clamp(48px,7vw,104px)] font-normal leading-[0.96] tracking-[-0.04em] text-[#242424]">
+          Jasa pembuatan website premium untuk bisnis yang ingin dipercaya.
+        </h1>
+      </div>
+      <div data-reveal class="max-w-[660px] lg:ml-auto">
+        <p class="text-[clamp(20px,2.2vw,28px)] leading-[1.35] tracking-[-0.02em] text-[#242424]">
+          Velora Studio membantu brand, UMKM, startup, dan perusahaan membuat
+          website yang rapi, cepat, mobile-friendly, SEO-ready, dan siap dipakai
+          untuk promosi, iklan, company profile, ecommerce, atau SaaS.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href={whatsappUrl} class="rounded-full bg-[#242424] px-6 py-3 text-[16px] text-white transition hover:bg-black">
+            Konsultasi via WhatsApp
+          </a>
+          <a href={calendlyUrl} class="rounded-full border border-[#9fb148] px-6 py-3 text-[16px] text-[#242424] transition hover:bg-[#d7ef69]">
+            Konsultasi
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-[#121212] px-6 py-20 text-white lg:py-28">
+    <div class="mx-auto max-w-[1329px]">
+      <div data-reveal class="grid gap-8 lg:grid-cols-[0.8fr_1fr] lg:items-end">
+        <div>
+          <p class="text-[14px] uppercase tracking-[2px] text-[var(--current-lime)]">
+            Layanan utama
+          </p>
+          <h2 class="mt-4 text-[clamp(42px,5vw,72px)] font-normal leading-[1] tracking-[-0.04em]">
+            Dari landing page sampai website custom.
+          </h2>
+        </div>
+        <p class="max-w-[620px] text-[19px] leading-8 text-[#b8b8b8] lg:ml-auto">
+          Struktur layanan dibuat untuk menangkap intent pencarian utama:
+          jasa pembuatan website, jasa landing page, website company profile,
+          redesign website, website WordPress, Webflow, Framer, ecommerce, dan SaaS.
+        </p>
+      </div>
+      <div class="mt-14 grid overflow-hidden rounded-lg border border-[#333] lg:grid-cols-3">
+        {
+          services.map(([title, copy, icon], index) => (
+            <article data-reveal class="min-h-[280px] border-b border-r border-[#333] p-7">
+              <div class="flex items-start justify-between">
+                <span class="grid size-[58px] place-items-center rounded-full bg-[var(--current-lime)]">
+                  <iconify-icon icon={icon} class="text-[34px] text-[#242424]" />
+                </span>
+                <span class="text-[18px] text-[#686868]">{String(index + 1).padStart(2, "0")}</span>
+              </div>
+              <h3 class="mt-20 text-[30px] leading-9 tracking-[-0.03em]">{title}</h3>
+              <p class="mt-4 text-[17px] leading-7 text-[#a9a9a9]">{copy}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="bg-white px-6 py-20 lg:py-28">
+    <div class="mx-auto max-w-[1329px]">
+      <div data-reveal class="max-w-[820px]">
+        <p class="text-[14px] uppercase tracking-[2px] text-[var(--current-primary)]">
+          SEO lokal
+        </p>
+        <h2 class="mt-4 text-[clamp(42px,5vw,72px)] font-normal leading-[1] tracking-[-0.04em] text-[#242424]">
+          Target awal untuk kota dengan intent bisnis kuat.
+        </h2>
+      </div>
+      <div class="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        {
+          priorityCities.map((item) => (
+            <a
+              data-reveal
+              href={`/id/${item.slug}`}
+              class="rounded-lg border border-[#dedede] bg-[#f7f7f7] p-5 transition hover:-translate-y-1 hover:border-[#c6df5d] hover:bg-[#efffa0]"
+            >
+              <p class="text-[22px] leading-7 tracking-[-0.03em] text-[#242424]">{item.city}</p>
+              <p class="mt-2 text-[15px] leading-6 text-[#686868]">{item.province}</p>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="px-6 py-20 lg:py-28">
+    <div class="mx-auto grid max-w-[1329px] gap-5 lg:grid-cols-[0.85fr_1.15fr]">
+      <div data-reveal>
+        <p class="text-[14px] uppercase tracking-[2px] text-[var(--current-primary)]">
+          FAQ
+        </p>
+        <h2 class="mt-4 text-[clamp(42px,5vw,72px)] font-normal leading-[1] tracking-[-0.04em] text-[#242424]">
+          Pertanyaan umum sebelum mulai.
+        </h2>
+      </div>
+      <div class="grid gap-3">
+        {
+          faqs.map(([question, answer]) => (
+            <article data-reveal class="rounded-lg border border-[#c6df5d] bg-white p-6">
+              <h3 class="text-[24px] leading-8 tracking-[-0.02em] text-[#242424]">{question}</h3>
+              <p class="mt-3 text-[17px] leading-7 text-[#686868]">{answer}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</SiteLayout>

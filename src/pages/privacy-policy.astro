@@ -1,0 +1,34 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+
+const sections = [
+  ["Informasi yang kami kumpulkan", "Kami dapat mengumpulkan nama, email, nomor WhatsApp, detail bisnis, catatan project, dan informasi website saat kamu menghubungi Velora Studio atau meminta konsultasi."],
+  ["Cara informasi digunakan", "Informasi digunakan untuk membalas inquiry, menyiapkan rekomendasi project, mengelola komunikasi, membuat proposal, dan meningkatkan layanan."],
+  ["Tools pihak ketiga", "Kami dapat menggunakan tools seperti WhatsApp, Calendly, analytics, hosting provider, payment, atau project management untuk menjalankan operasional."],
+  ["Penyimpanan data", "Informasi project dan kontak dapat disimpan selama proses diskusi atau pengerjaan, kecuali kamu meminta penghapusan selama memungkinkan secara legal dan operasional."],
+  ["Hak kamu", "Kamu dapat menghubungi kami untuk meminta akses, koreksi, atau penghapusan informasi pribadi."],
+];
+---
+
+<SiteLayout
+  title="Kebijakan Privasi | Velora Studio"
+  description="Kebijakan privasi Velora Studio untuk inquiry website, komunikasi project, dan layanan pembuatan website."
+  lang="id"
+  canonicalPath="/privacy-policy/"
+>
+  <section class="px-6 py-20 lg:py-28">
+    <div class="mx-auto max-w-[980px]">
+      <p data-reveal class="text-[14px] uppercase tracking-[2px] text-[var(--current-primary)]">Legal</p>
+      <h1 data-reveal data-primary-slide class="mt-5 text-[clamp(54px,7vw,92px)] font-normal leading-[0.98] tracking-[-0.04em] text-[#242424]">
+        Kebijakan Privasi
+      </h1>
+      <p data-reveal class="mt-6 text-[20px] leading-8 text-[#4f4f4f]">
+        Halaman ini menjelaskan bagaimana Velora Studio menangani informasi yang
+        dibagikan melalui inquiry website, konsultasi, dan komunikasi project.
+      </p>
+      <div class="mt-14 divide-y divide-[#c6df5d] rounded-lg border border-[#c6df5d] bg-white">
+        {sections.map(([title, copy]) => <section data-reveal class="p-6 sm:p-8"><h2 class="text-[28px] leading-8 tracking-[-0.02em] text-[#242424]">{title}</h2><p class="mt-4 text-[17px] leading-7 text-[#686868]">{copy}</p></section>)}
+      </div>
+    </div>
+  </section>
+</SiteLayout>

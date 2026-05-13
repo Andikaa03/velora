@@ -1,0 +1,48 @@
+---
+import SiteLayout from "../layouts/SiteLayout.astro";
+
+const features = [
+  ["Landing Page", "Halaman fokus untuk penawaran, campaign, produk, dan jasa dengan struktur CTA yang jelas.", "lucide:mouse-pointer-click"],
+  ["Website Bisnis", "Website multi-halaman untuk layanan, company profile, portfolio, dan brand lokal yang ingin terlihat premium.", "lucide:panel-top"],
+  ["Redesign Website", "Perbaikan visual, struktur mobile, trust signal, dan copy agar website terasa lebih kredibel.", "lucide:refresh-cw"],
+  ["CMS & Blog", "Setup WordPress, Webflow, Framer, atau custom CMS untuk konten yang bisa terus berkembang.", "lucide:newspaper"],
+  ["Website Ecommerce", "Fondasi toko online dan halaman produk untuk brand yang mulai serius menjual secara digital.", "lucide:shopping-bag"],
+  ["Website SaaS & Produk", "Marketing website untuk aplikasi, platform, dashboard, tools, dan produk digital custom.", "lucide:blocks"],
+];
+---
+
+<SiteLayout
+  title="Layanan Jasa Website | Velora Studio"
+  description="Layanan Velora Studio untuk landing page, website bisnis, redesign website, CMS, ecommerce, SaaS, dan website custom."
+  lang="id"
+  canonicalPath="/features/"
+>
+  <section class="px-6 py-20 lg:py-28">
+    <div class="mx-auto max-w-[1329px]">
+      <div data-reveal class="max-w-[820px]">
+        <p class="text-[14px] uppercase tracking-[2px] text-[var(--current-primary)]">
+          Layanan
+        </p>
+        <h1 data-reveal data-primary-slide class="mt-5 text-[clamp(54px,7vw,104px)] font-normal leading-[0.96] tracking-[-0.04em] text-[#242424]">
+          Sistem website untuk bisnis yang siap berkembang.
+        </h1>
+      </div>
+      <div class="mt-16 grid overflow-hidden rounded-lg border border-[#c6df5d] bg-[#121212] md:grid-cols-2 lg:grid-cols-3">
+        {
+          features.map((item, index) => (
+            <article data-reveal class="min-h-[290px] border-b border-r border-[#333] p-7 text-white">
+              <div class="flex items-start justify-between">
+                <span class="grid size-[58px] place-items-center rounded-full bg-[var(--current-lime)]">
+                  <iconify-icon icon={item[2]} class="text-[34px] text-[#242424]" />
+                </span>
+                <span class="text-[18px] text-[#686868]">{String(index + 1).padStart(2, "0")}</span>
+              </div>
+              <h2 class="mt-20 text-[30px] leading-9 tracking-[-0.02em]">{item[0]}</h2>
+              <p class="mt-4 text-[17px] leading-7 text-[#a9a9a9]">{item[1]}</p>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</SiteLayout>
