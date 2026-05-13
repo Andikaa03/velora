@@ -10,7 +10,6 @@
   "dependencies": {
     "@astrojs/react": "^4.3.0",
     "@astrojs/tailwind": "^6.0.2",
-    "@rolldown/binding-darwin-arm64": "^1.0.0",
     "astro": "^5.15.4",
     "autoprefixer": "^10.4.20",
     "framer-motion": "^12.38.0",
