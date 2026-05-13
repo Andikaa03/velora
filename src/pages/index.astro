@@ -1,0 +1,667 @@
+---
+import "../styles/global.css";
+import ScrollMotionController from "../components/ScrollMotionController";
+
+const calendlyUrl = "https://calendly.com/yourname/consultation";
+const whatsappUrl = "https://wa.me/628xxxxxxxxxx";
+
+const navItems = [
+  { label: "Services", href: "#features" },
+  { label: "Process", href: "#how-it-works" },
+  { label: "Platforms", href: "#platforms" },
+  { label: "Pricing", href: "#pricing" },
+  { label: "FAQ", href: "#faq" },
+];
+
+const trustItems = ["Premium visual direction", "Responsive development", "Domain & hosting setup", "Launch support included"];
+
+const companyLogos = [
+  { name: "Aidn", src: "/assets/logo-aidn.svg", className: "h-[36px] w-[81px]" },
+  { name: "Zapier", src: "/assets/logo-zapier.svg", className: "h-[34px] w-[121px]" },
+  { name: "Mercury", src: "/assets/logo-mercury.svg", className: "h-[22px] w-[121px]" },
+  { name: "Lattice", src: "/assets/logo-lattice.svg", className: "h-[22px] w-[121px]" },
+  { name: "Cognite", src: "/assets/logo-cognite.svg", className: "h-[60px] w-[81px]" },
+];
+
+const feedCards = [
+  {
+    title: "Landing Page Direction",
+    copy: "Homepage flow, offer structure, and CTA hierarchy prepared for launch.",
+    image: "/assets/unsplash-workspace-monitor.jpg",
+    avatar: "/assets/work-avatar-rachel.png",
+    author: "Velora Studio",
+    meta: "#landing-page",
+    reaction: "Strategy and design direction approved",
+    badgeIcon: "lucide:rocket",
+  },
+  {
+    title: "Business Website System",
+    copy: "Homepage, about, services, and contact pages shaped into one clear presence.",
+    image: "/assets/unsplash-desk-monitor.jpg",
+    avatar: "/assets/work-avatar-scott.png",
+    author: "Project Lead",
+    meta: "#business-site",
+    reaction: "Client-ready structure and launch checklist",
+    badgeIcon: "lucide:building-2",
+  },
+  {
+    title: "Redesign Audit Notes",
+    copy: "Visual hierarchy, mobile experience, and trust signals refined for a sharper site.",
+    image: "/assets/unsplash-hero-workspace.jpg",
+    avatar: "/assets/work-avatar-nicola.png",
+    author: "Design Review",
+    meta: "#redesign",
+    reaction: "Priority improvements mapped",
+    badgeIcon: "lucide:refresh-cw",
+  },
+  {
+    title: "Custom Build Scope",
+    copy: "Ecommerce, SaaS, integrations, CMS, and custom-coded experience planning.",
+    image: "/assets/unsplash-code-plant.jpg",
+    avatar: "/assets/work-avatar-scott.png",
+    author: "Velora Studio",
+    meta: "#custom-project",
+    reaction: "Discuss project scope",
+    badgeIcon: "lucide:sparkles",
+  },
+];
+
+const weeklyCards = [
+  {
+    title: "Premium Landing Page",
+    copy: "Offer, page sections, CTA flow, responsive layout, and visual polish prepared for launch.",
+    image: "/assets/unsplash-dashboard-phone.jpg",
+    avatar: "/assets/weekly-avatar-brent.png",
+    author: "Velora Studio",
+    meta: "#Landing Page",
+    reaction: "Launch checklist added",
+    icon: "lucide:rocket",
+  },
+  {
+    title: "Business Website Redesign",
+    copy: "Homepage and core pages refined into a clearer, more trusted brand presence.",
+    image: "/assets/unsplash-code-hands.jpg",
+    avatar: "/assets/weekly-avatar-lea.png",
+    author: "Project Review",
+    meta: "#Redesign",
+    reaction: "Visual direction approved",
+    icon: "lucide:sparkles",
+  },
+];
+
+const featureItems = [
+  { title: "Landing Pages", copy: "Focused pages for offers, products, services, campaigns, and personal brands.", icon: "lucide:mouse-pointer-click" },
+  { title: "Business Websites", copy: "Multi-page websites with clear structure, polished visuals, and strong CTAs.", icon: "lucide:panel-top" },
+  { title: "Website Redesign", copy: "Refresh your current website into a premium presence that fits your brand today.", icon: "lucide:refresh-cw" },
+  { title: "Ecommerce Websites", copy: "Product-focused web experiences for brands preparing to sell online.", icon: "lucide:shopping-bag" },
+  { title: "SaaS & Product Sites", copy: "Marketing websites for apps, platforms, dashboards, and digital products.", icon: "lucide:blocks" },
+  { title: "CMS Websites", copy: "Content-ready websites using WordPress, Webflow, Framer, or custom code.", icon: "lucide:layout-template" },
+];
+
+const platforms = [
+  { title: "Custom Code", copy: "Fast, flexible, and tailored for a polished experience.", icon: "lucide:code-2" },
+  { title: "WordPress", copy: "Ideal for blogs, content-heavy websites, and easy updates.", icon: "simple-icons:wordpress" },
+  { title: "Framer", copy: "Great for modern landing pages with smooth visual polish.", icon: "simple-icons:framer" },
+  { title: "Webflow", copy: "Perfect for visual websites with structured CMS needs.", icon: "simple-icons:webflow" },
+];
+
+const pricingPlans = [
+  {
+    name: "Landing Page",
+    price: "Rp 1.000.000",
+    description: "For one focused, premium page built to present one offer clearly.",
+    cta: "Start Project",
+    href: whatsappUrl,
+    features: ["1 premium landing page", "Responsive development", "Basic animation", "Copy structure support", "Domain & hosting setup", "Launch support"],
+  },
+  {
+    name: "Business Website",
+    price: "Rp 2.500.000",
+    description: "For brands that need a stronger and more complete online presence.",
+    cta: "Start Project",
+    href: whatsappUrl,
+    featured: true,
+    features: ["Multi-page website", "Home, about, services, contact", "Premium visual direction", "Basic SEO setup", "Domain & hosting setup", "Launch support"],
+  },
+  {
+    name: "Growth Website",
+    price: "Rp 4.500.000",
+    description: "For brands preparing for a more scalable premium digital presence.",
+    cta: "Start Project",
+    href: whatsappUrl,
+    features: ["Premium multi-page website", "CMS/blog-ready structure", "Refined visual system", "Smooth animation", "Domain & hosting setup", "Launch support"],
+  },
+  {
+    name: "Custom Project",
+    price: "Contact Us",
+    description: "For ecommerce, SaaS, integrations, custom features, or larger scopes.",
+    cta: "Discuss Project",
+    href: calendlyUrl,
+    features: ["Tailored project scope", "Ecommerce or SaaS website", "Custom-coded experience", "CMS and integrations", "Advanced animation", "Scalable foundation"],
+  },
+];
+
+const comparisonRows = [
+  { label: "Timeline", velora: "Focused sprint with launch support", typical: "Longer timeline and heavier meetings" },
+  { label: "Process", velora: "Direction, design, build, and launch in one flow", typical: "More handoffs between strategy, design, and development" },
+  { label: "Budget", velora: "Opening pricing for selected early projects", typical: "Higher starting budget before production begins" },
+  { label: "Scope", velora: "Landing pages, redesigns, business websites, ecommerce, and SaaS", typical: "Often packaged around fixed agency retainers" },
+];
+
+const faqItems = [
+  {
+    question: "Can you redesign an existing website?",
+    answer: "Yes. We can redesign your current website into a clearer, sharper, and more premium online presence.",
+  },
+  {
+    question: "Is domain and hosting included?",
+    answer: "Domain and hosting setup support is included, so your website can be prepared and launched smoothly.",
+  },
+  {
+    question: "Can you build ecommerce or SaaS websites?",
+    answer: "Yes. Ecommerce, SaaS, product websites, custom features, and integrations are handled through Custom Project scope.",
+  },
+  {
+    question: "Which platform should I choose?",
+    answer: "We can recommend the best setup after understanding your goals. Custom code, WordPress, Framer, and Webflow are available.",
+  },
+  {
+    question: "Is this promo pricing permanent?",
+    answer: "No. These are opening prices for selected early projects while project slots are still limited.",
+  },
+];
+
+const footerGroups = [
+  { title: "Studio", links: [{ label: "Services", href: "#features" }, { label: "Process", href: "#how-it-works" }, { label: "Pricing", href: "#pricing" }, { label: "FAQ", href: "#faq" }] },
+  { title: "Projects", links: [{ label: "Landing Pages", href: "#pricing" }, { label: "Business Websites", href: "#pricing" }, { label: "Website Redesign", href: "#features" }, { label: "Custom Projects", href: "#pricing" }] },
+  { title: "Contact", links: [{ label: "Book a Consultation", href: calendlyUrl }, { label: "Chat on WhatsApp", href: whatsappUrl }] },
+];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Velora Studio builds premium websites for brands ready to grow." />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.svg" />
+    <title>Velora Studio | Premium Websites for Growing Brands</title>
+  </head>
+  <body class="bg-[var(--current-lime)]">
+    <main class="min-h-screen bg-[var(--current-lime)] text-[var(--current-ink)]">
+      <ScrollMotionController client:load />
+      <header class="sticky top-0 z-50 w-full bg-[var(--current-lime)]">
+        <nav class="mx-auto flex h-[75px] w-full max-w-[1440px] items-center justify-between px-5 sm:px-8 lg:px-12">
+          <a href="/" aria-label="Velora Studio home" class="flex h-12 min-w-0 items-center overflow-hidden">
+            <img src="/assets/velora-logo-transparent.png" alt="Velora" class="h-[40px] w-[168px] object-contain object-left sm:h-[44px] sm:w-[198px] lg:h-[46px] lg:w-[210px]" />
+          </a>
+
+          <div class="hidden items-center gap-1 lg:flex">
+            {navItems.map((item) => <a href={item.href} class="flex h-[43px] items-center rounded-full px-3 text-[17px] leading-[23px] text-[#242424] transition hover:bg-[#d7ef69]">{item.label}</a>)}
+            <span class="mx-2 h-4 w-px bg-[var(--current-lime-line)]" aria-hidden="true"></span>
+            <a href={whatsappUrl} class="flex h-[43px] items-center rounded-full px-3 text-[17px] leading-[23px] text-[#242424] transition hover:bg-[#d7ef69]">WhatsApp</a>
+            <a href={calendlyUrl} class="flex h-[43px] items-center rounded-full bg-[#242424] px-6 text-[17px] leading-[23px] text-[#f0f0f0] transition hover:bg-black">Book a call</a>
+          </div>
+
+          <div class="flex items-center gap-2 lg:hidden">
+            <a href={whatsappUrl} class="hidden h-[43px] items-center rounded-full px-3 text-[15px] text-[#242424] transition hover:bg-[#d7ef69] sm:flex">WhatsApp</a>
+            <a href={calendlyUrl} class="flex h-[43px] items-center rounded-full bg-[#242424] px-5 text-[16px] text-[#f0f0f0]">Book</a>
+          </div>
+        </nav>
+      </header>
+
+      <section class="mx-auto flex w-full max-w-[1440px] flex-col items-center px-6 pb-8 pt-8 text-center sm:pt-[21px]">
+        <div data-reveal class="max-w-[1080px]">
+          <p class="mx-auto mb-5 w-fit rounded-full border border-[var(--current-lime-line)] px-4 py-2 text-[13px] uppercase leading-none tracking-[1.8px] text-[var(--current-primary)]">
+            Opening slots available - promo pricing for early clients
+          </p>
+          <h1 class="mx-auto max-w-[1080px] text-[clamp(48px,7.1vw,101px)] font-black leading-[0.997] tracking-[-0.025em] text-[#1e1e1e]">
+            Premium websites for<br class="hidden sm:block" /> brands ready to grow
+          </h1>
+          <p class="mx-auto mt-6 max-w-[900px] text-[20px] leading-[1.4] tracking-[-0.004em] text-[rgba(91,100,54,0.85)] sm:text-2xl">
+            We design and build polished websites for growing brands. From landing pages and business websites to future-ready
+            <span class="text-[#1e1e1e]">ecommerce</span>, <span class="text-[#1e1e1e]">SaaS</span>, and <span class="text-[#1e1e1e]">custom web experiences</span>.
+          </p>
+        </div>
+
+        <div data-reveal class="mt-9 flex w-full max-w-[570px] flex-col items-center gap-3 sm:flex-row sm:gap-4">
+          <a href={calendlyUrl} class="flex h-[66px] w-full items-center justify-center rounded-full bg-[#242424] px-8 text-[19px] font-medium leading-[26px] text-white transition hover:bg-black sm:w-[285px]">Book a Free Consultation</a>
+          <a href={whatsappUrl} class="flex h-[68px] w-full items-center justify-center gap-3 rounded-full border border-[var(--current-lime-line)] px-8 text-[19px] font-medium leading-[26px] text-[#242424] transition hover:bg-[#d7ef69] sm:w-[250px]">Chat on WhatsApp</a>
+        </div>
+        <p class="mt-3 text-[15px] leading-[23px] text-[var(--current-muted)]">Domain setup included for opening projects</p>
+      </section>
+
+      <section data-scroll-scene class="relative mx-auto mt-7 w-full max-w-[1425px] px-5 pb-20 sm:px-10 lg:px-0">
+        <div class="pointer-events-none absolute left-1/2 top-0 z-0 hidden h-12 w-[1425px] -translate-x-1/2 overflow-visible md:block" aria-hidden="true">
+          <div data-float class="absolute left-[1060.73px] top-[-81.77px] flex size-[101.54px] items-center justify-center">
+            <div class="relative size-[78px] rotate-[22deg] overflow-hidden">
+              <img src="/assets/deco-figma-bg.svg" alt="" class="absolute left-[-1px] top-0 size-[79px]" />
+              <img src="/assets/deco-figma-mark.svg" alt="" class="absolute left-[20px] top-[12px] h-[56px] w-[40px]" />
+            </div>
+          </div>
+          <div data-float class="absolute left-[479px] top-[-50px] size-[87px] rounded-full bg-[var(--current-lime-line)]">
+            <img src="/assets/deco-rays.svg" alt="" class="absolute left-[11px] top-[11px] size-[65px]" />
+          </div>
+          <div data-float class="absolute left-[1261.4px] top-[-113.1px] flex size-[42.208px] items-center justify-center">
+            <div class="relative size-9 rotate-[11deg] overflow-hidden">
+              <img src="/assets/deco-small-bg.svg" alt="" class="absolute left-[-1px] top-0 size-[37px]" />
+              <img src="/assets/deco-small-mark.svg" alt="" class="absolute left-[6px] top-[6px] h-[25px] w-[26px]" />
+            </div>
+          </div>
+          <div data-float class="absolute left-[886.83px] top-[-41.17px] flex size-[50.341px] items-center justify-center">
+            <div class="relative size-11 rotate-[9deg] overflow-hidden rounded-[9px] bg-[var(--current-lime-line)]">
+              <img src="/assets/deco-drive.svg" alt="" class="absolute left-[6px] top-[7px] h-[29px] w-[31px]" />
+            </div>
+          </div>
+          <div data-float class="absolute left-[288.11px] top-[-129.89px] flex size-[107.778px] items-center justify-center">
+            <div class="relative size-[88px] rotate-[-15deg] overflow-hidden">
+              <img src="/assets/deco-notion-bg.svg" alt="" class="absolute left-px top-px size-[86px]" />
+              <img src="/assets/deco-notion-mark.svg" alt="" class="absolute left-[7px] top-[7px] size-[74px]" />
+            </div>
+          </div>
+          <div data-float class="absolute left-[174.36px] top-[-27.14px] flex size-[50.285px] items-center justify-center">
+            <div class="relative size-9 rotate-[-36deg] overflow-hidden rounded-[9px] bg-[var(--current-lime-line)] shadow-[0_0.452px_0.904px_rgba(16,24,40,0.05)]">
+              <img src="/assets/deco-left-small.svg" alt="" class="absolute left-[5px] top-[6px] h-[25px] w-[26px]" />
+            </div>
+          </div>
+        </div>
+
+        <div data-reveal data-card-motion data-scroll-hero class="relative z-10 mx-auto max-w-[1200px] overflow-hidden rounded-2xl bg-gradient-to-br from-white/60 to-black/20 p-2 shadow-[0_5px_56px_rgba(100,114,50,0.24)]">
+          <div class="overflow-hidden rounded-[9px]">
+            <img src="/assets/unsplash-laptop-web.jpg" alt="Premium laptop workspace for Velora Studio" class="motion-image block aspect-[1.88] w-full rounded-[9px] object-cover transition duration-[900ms] ease-out" />
+          </div>
+        </div>
+      </section>
+
+      <section id="good-company" class="pt-[100px]">
+        <p data-reveal class="text-center text-[16.9px] uppercase leading-4 tracking-[2px] text-[var(--current-muted)]">YOU’RE IN GOOD COMPANY</p>
+        <div data-reveal class="mx-auto mt-12 flex max-w-[1128px] snap-x overflow-x-auto px-6 sm:px-0">
+          <div class="flex size-[188px] shrink-0 snap-start items-center justify-center rounded border-b border-l border-t border-[var(--current-lime-line)]">
+            <img src="/assets/logo-aidn.svg" alt="Aidn" class="h-[36px] w-[81px]" />
+          </div>
+          <div class="flex size-[188px] shrink-0 snap-start items-center justify-center gap-[8px] rounded border-b border-l border-t border-[var(--current-lime-line)]">
+            <img src="/assets/logo-synthesia.svg" alt="" class="size-[26px]" />
+            <img src="/assets/logo-synthesia-word.svg" alt="Synthesia" class="h-[16px] w-[90px]" />
+          </div>
+          {
+            companyLogos.slice(1).map((logo) => (
+              <div class="flex size-[188px] shrink-0 snap-start items-center justify-center rounded border-b border-l border-t border-[var(--current-lime-line)] last:border-r">
+                <img src={logo.src} alt={logo.name} class={logo.className} />
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <section id="how-it-works" data-scroll-scene data-work-scroll class="relative mt-[100px] overflow-hidden bg-[#121212] pb-0 pt-[145px] text-white">
+        <img src="/assets/work-bg-left.svg" alt="" class="pointer-events-none absolute left-[-18px] top-[145px] hidden h-[581px] w-[547px] opacity-80 lg:block" />
+        <img src="/assets/work-bg-bottom.svg" alt="" class="pointer-events-none absolute left-1/2 top-[576px] hidden h-[416px] w-[400px] -translate-x-[43%] opacity-80 lg:block" />
+        <img src="/assets/work-bg-right.svg" alt="" class="pointer-events-none absolute right-[-18px] top-[195px] hidden h-[543px] w-[226px] opacity-80 lg:block" />
+
+        <div class="pointer-events-none absolute left-1/2 top-0 hidden h-[772px] w-[1425px] -translate-x-1/2 lg:block" aria-hidden="true">
+          <img src="/assets/work-icon-figma.svg" alt="" class="absolute left-[73px] top-[42px] size-[66px] rotate-[-6deg] rounded-[20px]" />
+          <img src="/assets/work-icon-mail.svg" alt="" class="absolute left-[155px] top-[17px] size-[64px]" />
+          <img src="/assets/deco-notion-mark.svg" alt="" class="absolute left-[42px] top-[128px] size-[66px] rotate-[-12deg]" />
+          <img src="/assets/work-icon-github.svg" alt="" class="absolute left-[1139px] top-[641px] size-11 rotate-[13deg]" />
+          <img src="/assets/work-icon-linear.svg" alt="" class="absolute left-[1289px] top-[307px] size-12 rotate-[15deg]" />
+          <img src="/assets/work-icon-slack.svg" alt="" class="absolute left-[1231px] top-[474px] size-[58px]" />
+          <img src="/assets/work-icon-github.svg" alt="" class="absolute left-[1133px] top-[135px] size-[62px] rotate-[-10deg]" />
+          <img src="/assets/deco-left-small.svg" alt="" class="absolute left-[210px] top-[275px] size-10 opacity-70" />
+        </div>
+
+        <div data-reveal class="relative z-10 mx-auto max-w-[700px] px-6 text-center">
+          <h2 class="text-[clamp(42px,5.6vw,80px)] font-medium leading-[1.02] tracking-[-0.02em]">
+            Ideas are often<br />spread everywhere
+          </h2>
+          <p class="mx-auto mt-5 max-w-[540px] text-[15px] leading-7 text-[#8f8f8f] sm:text-[19.2px]">
+            Your offer, visuals, copy, pages, domain, and launch checklist can feel scattered. Velora turns that messy starting point into a clear website direction.
+          </p>
+        </div>
+
+        <div data-reveal class="relative z-10 mx-auto mt-[190px] max-w-[760px] px-6 text-center">
+          <h2 class="text-[clamp(42px,5.6vw,80px)] font-medium leading-[1.02] tracking-[-0.02em]">
+            Velora brings it<br />into one clean build
+          </h2>
+          <p class="mx-auto mt-5 max-w-[540px] text-[15px] leading-7 text-[#8f8f8f] sm:text-[19.2px]">
+            We shape the structure, design the visual direction, build the responsive experience, and prepare the website to launch with a premium feel.
+          </p>
+        </div>
+
+        <div data-reveal class="relative z-10 mx-auto mt-[88px] h-[880px] max-w-[1132px] overflow-hidden px-5 sm:px-0">
+          <div class="grid gap-5 md:grid-cols-3">
+            <div data-scroll-column class="flex flex-col gap-5">
+              {feedCards.slice(0, 2).map((card) => <article data-card-motion class="overflow-hidden rounded-[4.5px] bg-[#242424] text-left shadow-[0_24px_80px_rgba(0,0,0,0.35)]"><div class="relative h-[296px] overflow-hidden bg-[#424242]"><img src={card.image} alt="" class="motion-image size-full object-cover transition duration-[900ms] ease-out" /><div class="absolute right-3 top-3 flex size-[45px] items-center justify-center rounded-full bg-[#fcfcfc] text-[#242424]"><iconify-icon icon={card.badgeIcon} class="size-6"></iconify-icon></div></div><div class="border-x border-b border-[#333] px-4 pt-4"><h3 class="text-[17.9px] leading-[27px] text-[#efefef]">{card.title}</h3><p class="mt-2 text-[15.4px] leading-[25.6px] text-[#fdfdfd]">{card.copy}</p><div class="mt-3 flex items-center gap-2 text-[13.2px] leading-[22px] text-[#8f8f8f]"><img src={card.avatar} alt="" class="size-6 rounded-full object-cover" /><span>{card.author} &nbsp;•&nbsp; 1h ago &nbsp;•&nbsp; {card.meta}</span></div><div class="mt-4 border-t border-[rgba(51,51,51,0.5)] py-[18px] text-[13.5px] leading-[21px] tracking-[0.22px] text-[#8f8f8f]">{card.reaction}</div></div></article>)}
+            </div>
+            <div data-scroll-column class="mt-8 flex flex-col gap-5 md:mt-[-54px]">
+              {feedCards.slice(2).map((card) => <article data-card-motion class="overflow-hidden rounded-[4.5px] bg-[#242424] text-left shadow-[0_24px_80px_rgba(0,0,0,0.35)]"><div class="relative h-[260px] overflow-hidden bg-[#424242]"><img src={card.image} alt="" class="motion-image size-full object-cover transition duration-[900ms] ease-out" /><div class="absolute right-3 top-3 flex size-[45px] items-center justify-center rounded-full bg-[#fcfcfc] text-[#242424]"><iconify-icon icon={card.badgeIcon} class="size-6"></iconify-icon></div></div><div class="border-x border-b border-[#333] px-4 pt-4"><h3 class="text-[17.9px] leading-[27px] text-[#efefef]">{card.title}</h3><p class="mt-2 text-[15.4px] leading-[25.6px] text-[#fdfdfd]">{card.copy}</p><div class="mt-3 flex items-center gap-2 text-[13.2px] leading-[22px] text-[#8f8f8f]"><img src={card.avatar} alt="" class="size-6 rounded-full object-cover" /><span>{card.author} &nbsp;•&nbsp; 1h ago &nbsp;•&nbsp; {card.meta}</span></div><div class="mt-4 border-t border-[rgba(51,51,51,0.5)] py-[18px] text-[13.5px] leading-[21px] tracking-[0.22px] text-[#8f8f8f]">{card.reaction}</div></div></article>)}
+            </div>
+            <div data-scroll-column class="hidden flex-col gap-5 md:flex">
+              {feedCards.slice(0, 2).map((card) => <article data-card-motion class="overflow-hidden rounded-[4.5px] bg-[#242424] text-left shadow-[0_24px_80px_rgba(0,0,0,0.35)]"><div class="relative h-[296px] overflow-hidden bg-[#424242]"><img src={card.image} alt="" class="motion-image size-full object-cover transition duration-[900ms] ease-out" /><div class="absolute right-3 top-3 flex size-[45px] items-center justify-center rounded-full bg-[#fcfcfc] text-[#242424]"><iconify-icon icon={card.badgeIcon} class="size-6"></iconify-icon></div></div><div class="border-x border-b border-[#333] px-4 pt-4"><h3 class="text-[17.9px] leading-[27px] text-[#efefef]">{card.title}</h3><p class="mt-2 text-[15.4px] leading-[25.6px] text-[#fdfdfd]">{card.copy}</p><div class="mt-3 flex items-center gap-2 text-[13.2px] leading-[22px] text-[#8f8f8f]"><img src={card.avatar} alt="" class="size-6 rounded-full object-cover" /><span>{card.author} &nbsp;•&nbsp; 1h ago &nbsp;•&nbsp; {card.meta}</span></div><div class="mt-4 border-t border-[rgba(51,51,51,0.5)] py-[18px] text-[13.5px] leading-[21px] tracking-[0.22px] text-[#8f8f8f]">{card.reaction}</div></div></article>)}
+            </div>
+          </div>
+          <div class="pointer-events-none absolute inset-x-[-120px] bottom-0 h-[432px] bg-gradient-to-b from-transparent to-[#121212]"></div>
+        </div>
+      </section>
+
+      <section id="weekly-summary" class="relative overflow-hidden bg-[#121212] px-6 py-20 text-white">
+        <div data-reveal class="mx-auto max-w-[900px] text-center">
+          <h2 class="text-[clamp(42px,5.2vw,68px)] font-medium leading-[1.03] tracking-[-0.02em]">
+            Each project gets structured<br class="hidden md:block" /> and prepared for launch
+          </h2>
+          <p class="mx-auto mt-6 max-w-[570px] text-[15px] leading-7 text-[#8f8f8f] sm:text-[19.2px]">
+            At the end of the sprint, your <span class="text-[#dedede]">launch-ready website</span> is packaged with responsive pages, domain setup support, and a clear handoff.
+          </p>
+          <a href={calendlyUrl} class="mx-auto mt-6 inline-flex h-[58px] items-center gap-3 rounded-full border border-[#333] px-5 text-[19.5px] leading-[26px] text-[#f7f7f7] transition hover:border-[#555]">
+            <iconify-icon icon="lucide:play" class="size-4"></iconify-icon>
+            Book a call
+          </a>
+        </div>
+      </section>
+
+      <section id="weekly-drop" class="relative overflow-hidden bg-[#121212] px-6 pb-[140px] text-white">
+        <div class="pointer-events-none absolute inset-y-0 left-0 w-[100px] bg-gradient-to-l from-transparent to-[#121212]"></div>
+        <div class="pointer-events-none absolute inset-y-0 right-0 w-[100px] bg-gradient-to-r from-transparent to-[#121212]"></div>
+
+        <div data-reveal class="mx-auto max-w-[1132px] overflow-hidden rounded border border-[#333] bg-[#1e1e1e] px-5 pb-28 pt-[54px] sm:px-10 lg:px-[146px]">
+          <p class="text-center text-[21.1px] leading-7 text-[#f7f7f7]">Website Sprint · Opening Slots</p>
+
+          <div class="mx-auto mt-[166px] max-w-[600px]">
+            <div class="flex h-12 items-center justify-between">
+              <div>
+                <h3 class="text-[17.9px] leading-[26px] text-[#f7f7f7]"># Launch Sprint</h3>
+                <p class="text-[13.2px] leading-[22px] tracking-[0.2px] text-[#686868]">2-week process</p>
+              </div>
+              <div class="relative h-9 w-28">
+                <img src="/assets/weekly-avatar-olga.png" alt="" class="absolute left-0 top-0 size-9 rounded-full shadow-[0_0_0_2px_#1e1e1e]" />
+                <img src="/assets/weekly-avatar-lea.png" alt="" class="absolute left-[26px] top-0 size-9 rounded-full shadow-[0_0_0_2px_#1e1e1e]" />
+                <img src="/assets/weekly-avatar-brent.png" alt="" class="absolute left-[52px] top-0 size-9 rounded-full shadow-[0_0_0_2px_#1e1e1e]" />
+                <div class="absolute left-[78px] top-0 flex size-9 items-center justify-center rounded-full bg-[#333] text-xs text-[#fdfdfd] shadow-[0_0_0_2px_#1e1e1e]">+2</div>
+              </div>
+            </div>
+
+            <div class="mt-9 flex flex-col gap-9">
+              {weeklyCards.map((card) => (
+                <article data-card-motion class="overflow-hidden rounded-[4.5px] bg-[#242424] text-left">
+                  <div class="relative h-[356px] overflow-hidden bg-[#242424]">
+                    <img src={card.image} alt="" class="motion-image size-full object-cover transition duration-[900ms] ease-out" />
+                    <div class="absolute right-3 top-3 flex size-[45px] items-center justify-center rounded-full bg-[#fcfcfc] text-[#242424]">
+                      <iconify-icon icon={card.icon} class="block text-[32px] leading-none"></iconify-icon>
+                    </div>
+                  </div>
+                  <div class="border-x border-b border-[#333] px-4 pt-4">
+                    <h3 class="text-[17.9px] leading-[27px] text-[#efefef]">{card.title}</h3>
+                    <p class="mt-2 truncate text-[15.4px] leading-[25.6px] text-[#fdfdfd]">{card.copy}</p>
+                    <div class="mt-3 flex items-center gap-2 text-[13.2px] leading-[22px] text-[#8f8f8f]">
+                      <img src={card.avatar} alt="" class="size-6 rounded-full object-cover" />
+                      <span>{card.author} &nbsp;•&nbsp; 3h ago &nbsp;•&nbsp; {card.meta}</span>
+                    </div>
+                    <div class="mt-4 border-t border-[rgba(51,51,51,0.5)] py-[18px] text-[13.5px] leading-[21px] tracking-[0.22px] text-[#8f8f8f]">
+                      {card.reaction}
+                    </div>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" class="bg-white px-6 py-[180px] text-[#242424]">
+        <div class="mx-auto max-w-[1132px]">
+          <div data-reveal class="flex flex-col gap-10 md:flex-row md:items-center md:justify-between">
+            <div>
+              <p class="text-[15px] uppercase leading-[20.3px] tracking-[2px] text-[var(--current-primary)]">Services</p>
+              <h2 class="mt-4 max-w-[720px] text-[clamp(42px,5vw,52px)] font-normal leading-[1.064] tracking-[-0.02em]">Websites for every stage<br class="hidden sm:block" /> of your brand</h2>
+            </div>
+            <a href="#pricing" class="inline-flex h-[66px] w-fit items-center gap-3 rounded-full bg-[#242424] px-[25px] text-[19.3px] leading-[26.1px] text-[#f7f7f7] transition hover:bg-black">View packages <iconify-icon icon="lucide:arrow-right" class="size-5"></iconify-icon></a>
+          </div>
+
+          <div data-reveal class="mt-16 grid gap-y-9 md:grid-cols-3 md:gap-x-0">
+            {featureItems.map((item) => <article data-card-motion class="min-h-[138px] pr-6 pt-6"><div class="flex items-start gap-2.5"><iconify-icon icon={item.icon} class="mt-0.5 size-6 text-[var(--current-primary)]"></iconify-icon><h3 class="text-[19.8px] font-normal leading-7 text-[#242424]">{item.title}</h3></div><p class="mt-2 max-w-[353px] text-[17.3px] leading-[26.1px] text-[#686868]">{item.copy}</p></article>)}
+          </div>
+        </div>
+      </section>
+
+      <section id="platforms" class="relative overflow-hidden bg-[#121212] px-6 py-[120px] text-white">
+        <div class="pointer-events-none absolute inset-x-0 top-0 h-px bg-[#333]"></div>
+        <div class="pointer-events-none absolute left-1/2 top-[-180px] size-[420px] -translate-x-1/2 rounded-full bg-[var(--current-lime)] opacity-[0.08] blur-3xl"></div>
+
+        <div data-reveal class="mx-auto max-w-[1132px]">
+          <div class="grid gap-10 lg:grid-cols-[0.9fr_1fr] lg:items-end">
+            <div>
+              <p class="text-[15px] uppercase leading-[20.3px] tracking-[2px] text-[var(--current-lime)]">Platforms</p>
+              <h2 class="mt-4 text-[clamp(48px,5.6vw,80px)] font-normal leading-[1.02] tracking-[-0.02em]">
+                Built on the platform<br />that fits your goals
+              </h2>
+            </div>
+            <p class="max-w-[560px] text-[19px] leading-8 text-[#8f8f8f] lg:justify-self-end">
+              Custom code, WordPress, Framer, or Webflow. We recommend the setup based on your content needs, timeline, and future plan.
+            </p>
+          </div>
+
+          <div class="mt-14 grid overflow-hidden rounded-lg border border-[#333] md:grid-cols-2 lg:grid-cols-4">
+            {
+              platforms.map((item, index) => (
+                <article data-card-motion class="group relative min-h-[320px] border-b border-[#333] bg-[#1e1e1e] p-6 text-center transition hover:bg-[#242424] md:border-r lg:border-b-0">
+                  <div class="relative flex justify-center">
+                    <div class="flex size-[58px] items-center justify-center rounded-full bg-[var(--current-lime)] text-[#242424] transition group-hover:scale-105">
+                      <iconify-icon icon={item.icon} class="block text-[38px] leading-none"></iconify-icon>
+                    </div>
+                    <span class="absolute right-0 top-0 text-[13px] leading-5 text-[#686868]">0{index + 1}</span>
+                  </div>
+                  <div class="mt-12">
+                    <h3 class="text-[26px] font-normal leading-8 tracking-[-0.02em] text-[#f7f7f7]">{item.title}</h3>
+                    <p class="mx-auto mt-3 max-w-[240px] text-[16px] leading-7 text-[#9f9f9f]">{item.copy}</p>
+                  </div>
+                  <div class="absolute inset-x-6 bottom-5 flex items-center justify-between border-t border-[#333] pt-4 text-[13px] uppercase tracking-[1.4px] text-[#686868]">
+                    <span>{index === 0 ? "Performance" : index === 1 ? "Content" : index === 2 ? "Motion" : "CMS"}</span>
+                    <iconify-icon icon="lucide:arrow-up-right" class="size-5 text-[var(--current-lime)]"></iconify-icon>
+                  </div>
+                </article>
+              ))
+            }
+          </div>
+        </div>
+      </section>
+
+      <section id="pricing" class="bg-white px-6 py-[140px] text-[#242424]">
+        <div class="mx-auto max-w-[1180px]">
+          <div data-reveal class="mx-auto max-w-[760px] text-center">
+            <p class="text-[15px] uppercase leading-[20.3px] tracking-[2px] text-[var(--current-primary)]">Pricing</p>
+            <h2 class="mt-4 text-[clamp(42px,5vw,52px)] font-normal leading-[1.064] tracking-[-0.02em]">Opening packages for early clients</h2>
+            <p class="mx-auto mt-5 max-w-[590px] text-[17.3px] leading-[26.1px] text-[#686868]">Special launch pricing for selected early projects while studio capacity is still limited.</p>
+          </div>
+          <div data-reveal class="mt-16 grid gap-4 lg:grid-cols-4">
+            {pricingPlans.map((plan) => (
+              <article data-card-motion class:list={["flex min-h-[570px] flex-col rounded-lg border p-5", plan.featured ? "border-[#242424] bg-[#242424] text-white" : "border-[#dedede] bg-white text-[#242424]"]}>
+                <h3 class="text-[23px] font-normal leading-8">{plan.name}</h3>
+                <p class:list={["mt-6 text-[32px] font-semibold tracking-[-0.03em]", plan.featured ? "text-[var(--current-lime)]" : "text-[#242424]"]}>{plan.price}</p>
+                <p class:list={["mt-4 min-h-[84px] text-[15.5px] leading-7", plan.featured ? "text-[#d0d0d0]" : "text-[#686868]"]}>{plan.description}</p>
+                <a href={plan.href} class:list={["mt-4 flex h-[54px] items-center justify-center rounded-full text-[17px] transition", plan.featured ? "bg-[var(--current-lime)] text-[#242424] hover:brightness-95" : "bg-[#242424] text-white hover:bg-black"]}>{plan.cta}</a>
+                <div class="mt-7 flex flex-col gap-3">
+                  {plan.features.map((feature) => <div class:list={["flex gap-3 text-[15px] leading-6", plan.featured ? "text-[#efefef]" : "text-[#555]"]}><iconify-icon icon="lucide:check" class:list={["mt-0.5 size-5 shrink-0", plan.featured ? "text-[var(--current-lime)]" : "text-[var(--current-primary)]"]}></iconify-icon>{feature}</div>)}
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="why-velora" class="relative overflow-hidden bg-[#121212] px-6 py-[130px] text-white">
+        <div class="pointer-events-none absolute left-1/2 top-[-220px] size-[520px] -translate-x-1/2 rounded-full bg-[var(--current-lime)] opacity-[0.07] blur-3xl"></div>
+        <div class="mx-auto max-w-[1132px]">
+          <div data-reveal class="grid gap-10 lg:grid-cols-[0.9fr_1fr] lg:items-end">
+            <div>
+              <p class="text-[15px] uppercase leading-[20.3px] tracking-[2px] text-[var(--current-lime)]">Why Velora</p>
+              <h2 class="mt-4 text-[clamp(42px,5.2vw,68px)] font-normal leading-[1.03] tracking-[-0.02em]">
+                Premium execution without the heavy agency process
+              </h2>
+            </div>
+            <p class="max-w-[570px] text-[19px] leading-8 text-[#8f8f8f] lg:justify-self-end">
+              Built for brands that want to look trusted sooner, launch with confidence, and keep space to grow into ecommerce, SaaS, or custom digital products later.
+            </p>
+          </div>
+
+          <div data-reveal class="mt-14 grid gap-4 lg:grid-cols-[0.82fr_1.18fr]">
+            <div class="rounded-lg border border-[#333] bg-[#1e1e1e] p-6">
+              <p class="text-[14px] uppercase tracking-[1.8px] text-[#8f8f8f]">Studio approach</p>
+              <h3 class="mt-6 text-[34px] font-normal leading-[1.08] tracking-[-0.03em] text-[#f7f7f7]">
+                Clear direction, polished visuals, and a build that is ready to go live.
+              </h3>
+              <div class="mt-10 grid grid-cols-2 gap-3">
+                <div class="rounded-lg border border-[#333] p-4">
+                  <p class="text-[38px] leading-none tracking-[-0.04em] text-[var(--current-lime)]">2w</p>
+                  <p class="mt-2 text-[14px] leading-5 text-[#8f8f8f]">Focused launch sprint</p>
+                </div>
+                <div class="rounded-lg border border-[#333] p-4">
+                  <p class="text-[38px] leading-none tracking-[-0.04em] text-[var(--current-lime)]">4+</p>
+                  <p class="mt-2 text-[14px] leading-5 text-[#8f8f8f]">Platforms supported</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="overflow-hidden rounded-lg border border-[#333]">
+              {comparisonRows.map((row) => (
+                <div class="grid border-b border-[#333] last:border-b-0 md:grid-cols-[0.45fr_1fr_1fr]">
+                  <div class="bg-[#181818] p-5 text-[14px] uppercase tracking-[1.5px] text-[#8f8f8f]">{row.label}</div>
+                  <div class="flex gap-3 p-5 text-[17px] leading-7 text-[#f7f7f7]">
+                    <iconify-icon icon="lucide:check" class="mt-1 size-5 shrink-0 text-[var(--current-lime)]"></iconify-icon>
+                    <span>{row.velora}</span>
+                  </div>
+                  <div class="border-t border-[#333] p-5 text-[17px] leading-7 text-[#8f8f8f] md:border-l md:border-t-0">{row.typical}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="bg-white px-6 py-[130px] text-[#12161d]">
+        <div class="mx-auto max-w-[1060px]">
+          <div data-reveal class="mx-auto max-w-[720px] text-center">
+            <p class="text-[15px] uppercase leading-[20.3px] tracking-[2px] text-[var(--current-primary)]">FAQ</p>
+            <h2 class="mt-3 text-[clamp(42px,5vw,56px)] font-normal leading-[1.064] tracking-[-0.02em] text-[#242424]">Questions before we start?</h2>
+            <p class="mx-auto mt-5 max-w-[560px] text-[17.3px] leading-[26.1px] text-[#686868]">
+              Quick answers about scope, platforms, launch setup, and opening project pricing.
+            </p>
+          </div>
+          <div data-reveal class="mt-14 flex flex-col gap-[12px]">
+            {faqItems.map((item, index) => (
+              <article data-faq-item data-faq-open={index === 0 ? "true" : "false"} class:list={["relative rounded-[24px] border px-5 py-5 transition-colors sm:px-8 sm:py-6", index === 0 ? "border-[var(--current-lime-line)] bg-[var(--current-lime)]" : "border-[#dedede] bg-[#f7f7f7]"]}>
+                <button type="button" data-faq-trigger aria-expanded={index === 0 ? "true" : "false"} class="block min-h-[64px] w-full py-2 pr-[76px] text-left sm:pr-[96px]">
+                  <span class="text-[clamp(20px,2.2vw,24px)] font-semibold leading-[1.25] tracking-[-0.01em] text-[#242424]">{item.question}</span>
+                  <span class="absolute right-5 top-1/2 grid size-[52px] -translate-y-1/2 place-items-center rounded-full border border-[#7e7e7e] bg-white text-[#242424] sm:right-8"><iconify-icon data-faq-icon icon={index === 0 ? "lucide:arrow-up-right" : "lucide:arrow-down-right"} class="text-[34px] leading-none text-[#7e7e7e]"></iconify-icon></span>
+                </button>
+                <p data-faq-answer class:list={["mt-4 max-w-[780px] pr-[76px] text-[17px] leading-7 text-[#4f4f4f] sm:pr-[96px]", index !== 0 && "hidden"]}>{item.answer}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="relative overflow-hidden bg-[#121212] pt-[76px] text-white">
+        <div data-reveal class="mx-auto flex max-w-[760px] flex-col items-center px-6 text-center">
+          <div class="flex h-12 w-[190px] items-center justify-center overflow-hidden">
+            <img src="/assets/velora-logo-transparent.png" alt="Velora" class="h-[42px] w-[190px] object-contain invert" />
+          </div>
+          <h2 class="mt-6 text-[clamp(42px,5vw,52px)] font-normal leading-[1.064] tracking-[-0.02em] text-[#f7f7f7]">Ready to make your website feel premium?</h2>
+        </div>
+        <div class="mt-[59px] border-y border-[#333]">
+          <div class="mx-auto grid max-w-[1425px] grid-cols-[minmax(0,1fr)] lg:grid-cols-[146.5px_1fr_146.5px]">
+            <div class="hidden min-h-[161px] rounded-r-lg border-x border-[#333] lg:block"></div>
+            <a href={calendlyUrl} class="flex min-h-[161px] items-center justify-center rounded-full border-x border-[#333] bg-[var(--current-lime)] px-6 text-center text-[clamp(42px,5.5vw,66px)] leading-[1.1] tracking-[-0.03em] text-[#242424] transition hover:brightness-95">Book a Free Consultation</a>
+            <div class="hidden min-h-[161px] rounded-l-lg border-x border-[#333] lg:block"></div>
+          </div>
+        </div>
+        <div class="border-b border-[#333]">
+          <div class="mx-auto grid max-w-[1425px] grid-cols-[minmax(0,1fr)] lg:grid-cols-[146.5px_1fr_146.5px]">
+            <div class="hidden min-h-40 rounded-r-lg border-x border-[#333] lg:block"></div>
+            <div class="grid min-h-40 md:grid-cols-2">
+              <a href={whatsappUrl} class="flex items-center justify-center gap-3 rounded-full border border-[#333] px-6 text-[24px] leading-[32px] text-[#f7f7f7] transition hover:bg-[#181818] sm:text-[30px] sm:leading-[40.6px]"><iconify-icon icon="lucide:message-circle" class="size-8"></iconify-icon>Chat on WhatsApp</a>
+              <a href="#pricing" class="flex items-center justify-center gap-3 rounded-full border border-[#333] px-6 text-[24px] leading-[32px] text-[#f7f7f7] transition hover:bg-[#181818] sm:text-[30px] sm:leading-[40.6px]"><iconify-icon icon="lucide:layers" class="size-8"></iconify-icon>View packages</a>
+            </div>
+            <div class="hidden min-h-40 rounded-l-lg border-x border-[#333] lg:block"></div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="bg-[#121212] px-6 py-12 text-[15.4px] leading-[23.2px]">
+        <div class="mx-auto max-w-[1329px]">
+          <div class="grid gap-12 md:grid-cols-4 lg:grid-cols-[1.4fr_1fr_1fr_1fr] lg:gap-6">
+            <div>
+              <div class="flex h-9 items-center overflow-hidden">
+                <img src="/assets/velora-logo-transparent.png" alt="Velora" class="h-[34px] w-[170px] object-contain object-left invert" />
+              </div>
+              <p class="mt-4 max-w-[330px] text-[#8f8f8f]">Premium web design and development for brands that want to look more trusted, launch faster, and build a stronger digital presence.</p>
+            </div>
+            {footerGroups.map((group) => <div class="flex flex-col gap-2"><p class="text-[#8f8f8f]">{group.title}</p><nav class="mt-1 flex flex-col gap-2">{group.links.map((link) => <a href={link.href} class="text-[#f7f7f7] transition hover:text-[var(--current-lime)]">{link.label}</a>)}</nav></div>)}
+          </div>
+          <div class="mt-32 flex flex-col gap-4 border-t border-[#242424] pt-6 text-[#8f8f8f] md:flex-row md:items-center md:justify-between"><p>Opening pricing for selected early projects.</p><p>© 2026 Velora Studio</p></div>
+        </div>
+      </footer>
+    </main>
+    <script>
+      import "iconify-icon";
+
+      const revealItems = document.querySelectorAll("[data-reveal]");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("is-visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 },
+      );
+      revealItems.forEach((item, index) => {
+        if (item instanceof HTMLElement) {
+          item.style.setProperty("--reveal-delay", `${Math.min(index * 55, 220)}ms`);
+          item.setAttribute("data-reveal-ready", "");
+        }
+        observer.observe(item);
+      });
+
+      document.documentElement.classList.add("motion-ready");
+      requestAnimationFrame(() => {
+        revealItems.forEach((item) => {
+          if (!(item instanceof HTMLElement)) return;
+          const rect = item.getBoundingClientRect();
+          if (rect.top < window.innerHeight && rect.bottom > 0) {
+            item.classList.add("is-visible");
+          }
+        });
+      });
+
+      const faqItems = Array.from(document.querySelectorAll("[data-faq-item]"));
+
+      function setFaqState(item, open) {
+        const trigger = item.querySelector("[data-faq-trigger]");
+        const answer = item.querySelector("[data-faq-answer]");
+        const icon = item.querySelector("[data-faq-icon]");
+        if (!(trigger instanceof HTMLButtonElement && answer && icon instanceof HTMLElement)) return;
+
+        trigger.setAttribute("aria-expanded", String(open));
+        item.setAttribute("data-faq-open", String(open));
+        item.classList.toggle("bg-[var(--current-lime)]", open);
+        item.classList.toggle("bg-[#f7f7f7]", !open);
+        item.classList.toggle("border-[var(--current-lime-line)]", open);
+        item.classList.toggle("border-[#dedede]", !open);
+        answer.classList.toggle("hidden", !open);
+        icon.setAttribute("icon", open ? "lucide:arrow-up-right" : "lucide:arrow-down-right");
+      }
+
+      faqItems.forEach((item) => {
+        const trigger = item.querySelector("[data-faq-trigger]");
+        if (!(trigger instanceof HTMLButtonElement)) return;
+
+        trigger.addEventListener("click", () => {
+          const isOpen = trigger.getAttribute("aria-expanded") === "true";
+          faqItems.forEach((faqItem) => setFaqState(faqItem, false));
+          if (!isOpen) setFaqState(item, true);
+        });
+      });
+    </script>
+  </body>
+</html>
