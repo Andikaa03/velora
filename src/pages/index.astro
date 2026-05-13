@@ -557,32 +557,40 @@ const footerGroups = [
         </div>
       </section>
 
-      <section id="testimonials" class="relative overflow-hidden bg-[#121212] px-6 py-[40px] pb-[130px] text-white">
-        <div class="pointer-events-none absolute right-0 top-0 size-[400px] rounded-full bg-[var(--current-lime)] opacity-[0.05] blur-3xl"></div>
-        <div class="mx-auto max-w-[1132px]">
-          <div data-reveal class="mx-auto max-w-[720px] text-center">
-            <p class="text-[15px] uppercase leading-[20.3px] tracking-[2px] text-[var(--current-lime)]">Testimonials</p>
-            <h2 class="mt-4 text-[clamp(42px,5.2vw,56px)] font-normal leading-[1.064] tracking-[-0.02em] text-[#f7f7f7]">
-              Trusted by brands that<br />demand quality
+      <section id="testimonials" class="relative overflow-hidden bg-white px-6 py-[130px] text-[#242424]">
+        <div class="mx-auto max-w-[1060px]">
+          <div data-reveal class="flex flex-col items-center text-center">
+            <p class="text-[15px] uppercase leading-[20.3px] tracking-[2px] text-[var(--current-primary)]">Testimonials</p>
+            <h2 class="mt-4 text-[clamp(42px,5.2vw,56px)] font-normal leading-[1.064] tracking-[-0.02em]">
+              Trusted by brands that demand quality
             </h2>
           </div>
           
-          <div class="mt-14 grid gap-5 md:grid-cols-3">
-            {testimonials.map((testimonial) => (
-              <article data-reveal data-card-motion class="relative flex flex-col justify-between overflow-hidden rounded-lg border border-[#333] bg-[#1e1e1e] p-8">
-                <iconify-icon icon="lucide:quote" class="absolute right-6 top-6 text-5xl text-[#333] opacity-30"></iconify-icon>
-                <p class="relative z-10 text-[17px] leading-[28px] text-[#dfdfdf]">
-                  "{testimonial.quote}"
-                </p>
-                <div class="mt-8 flex items-center gap-4">
-                  <img src={testimonial.avatar} alt={testimonial.name} class="size-11 rounded-full object-cover" />
-                  <div>
-                    <p class="text-[15.5px] font-medium leading-none text-[#f7f7f7]">{testimonial.name}</p>
-                    <p class="mt-1.5 text-[14px] leading-none text-[#8f8f8f]">{testimonial.role}</p>
-                  </div>
+          <div data-reveal class="mx-auto mt-16 max-w-[960px] overflow-hidden rounded-2xl bg-[#f7f7f7] px-8 py-12 text-center sm:px-16 sm:py-16">
+            <img src="/assets/testimonial-mercury.svg" alt="Mercury" class="mx-auto h-[32px] w-auto opacity-80" />
+            
+            <p class="mt-8 text-[clamp(24px,3.5vw,36px)] leading-[1.3] tracking-[-0.01em] text-[#242424]">
+              "Velora turned our scattered ideas into a premium website in just two weeks. The new design feels lightyears ahead of what we had, and the launch was completely seamless."
+            </p>
+            
+            <div class="mt-12 flex flex-col items-center justify-between gap-6 sm:flex-row sm:gap-0">
+              <div class="flex items-center gap-4">
+                <img src="/assets/testimonial-avatar.png" alt="Alex Jensen" class="size-[54px] rounded-full object-cover" />
+                <div class="text-left">
+                  <p class="text-[17px] font-medium leading-none text-[#242424]">Alex Jensen</p>
+                  <p class="mt-1.5 text-[15px] leading-none text-[#686868]">Founder, Mercury</p>
                 </div>
-              </article>
-            ))}
+              </div>
+              
+              <div class="flex items-center gap-3">
+                <button class="flex size-[48px] items-center justify-center rounded-full border border-[#dedede] bg-white transition hover:bg-[#f0f0f0]">
+                  <img src="/assets/testimonial-arrow-left.svg" alt="Previous" class="size-6 opacity-70" />
+                </button>
+                <button class="flex size-[48px] items-center justify-center rounded-full border border-[#dedede] bg-white transition hover:bg-[#f0f0f0]">
+                  <img src="/assets/testimonial-arrow-right.svg" alt="Next" class="size-6 opacity-70" />
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
