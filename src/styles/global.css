@@ -120,6 +120,28 @@ a {
   }
 }
 
+[data-auto-scroll] {
+  will-change: transform;
+}
+
+[data-auto-scroll="up"] {
+  animation: auto-scroll-up 20s ease-in-out infinite alternate;
+}
+
+[data-auto-scroll="down"] {
+  animation: auto-scroll-down 20s ease-in-out infinite alternate;
+}
+
+@keyframes auto-scroll-up {
+  0% { transform: translate3d(0, 96px, 0); }
+  100% { transform: translate3d(0, -120px, 0); }
+}
+
+@keyframes auto-scroll-down {
+  0% { transform: translate3d(0, -90px, 0); }
+  100% { transform: translate3d(0, 150px, 0); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -130,7 +152,8 @@ a {
   [data-float],
   [data-scroll-hero],
   [data-scroll-card],
-  [data-scroll-column] {
+  [data-scroll-column],
+  [data-auto-scroll] {
     animation: none;
     opacity: 1;
     transform: none;
